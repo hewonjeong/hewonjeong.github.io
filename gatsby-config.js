@@ -5,7 +5,7 @@ module.exports = {
     description: `Personal blog by Hewon Jeong`,
     siteUrl: `https://hewonjeong.github.io`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `hewonjeong`,
     },
   },
   plugins: [
@@ -74,5 +74,6 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-sass`,
   ],
 }
