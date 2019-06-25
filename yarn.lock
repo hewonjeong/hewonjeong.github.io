@@ -11993,6 +11993,11 @@ typeface-montserrat@0.0.75:
   resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-0.0.75.tgz#b796d9c767ab8ed1343271985beb1e44b382b7b3"
   integrity sha512-8ski20t3hdwu2T85pVfjK4jsDbwW8yWzd+LAKxYEmu+JVLVlB7G2yfmdKZz06pUwYCLVFvHvup+NYYulHDpE+w==
 
+typeface-noto-sans-kr@^0.0.63:
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/typeface-noto-sans-kr/-/typeface-noto-sans-kr-0.0.63.tgz#d4396920dd4af659c2a78b66c57a7d6c1c517135"
+  integrity sha512-IH1WIjCxhOaTvWvq3+zezhnsOGlwZ9HFdIawVTdU5Dss1/GRp75VqsReKJqAMPD6EegOmzOSM38kIiqimcN8Dg==
+
 typography-breakpoint-constants@^0.16.19:
   version "0.16.19"
   resolved "https://registry.yarnpkg.com/typography-breakpoint-constants/-/typography-breakpoint-constants-0.16.19.tgz#e0e89147749562cbb46ce76c47ff0f73372765e7"
