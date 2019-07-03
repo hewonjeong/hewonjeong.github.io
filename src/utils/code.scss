@@ -1,0 +1,182 @@
+@import url("https://cdn.jsdelivr.net/npm/@typopro/web-fira-code@3.7.5/TypoPRO-FiraCode.css");
+
+$bg: #151515;
+$bg-highligted: #242424; // hsla(207, 95%, 15%, 1)
+$bg-selected: #323232; // hsl(207, 4%, 16%);
+
+$inlineCode-bg: rgba(135, 131, 120, 0.15);
+$inlineCode-text: black; //#eb5757;
+
+$keyword: #7da0bb; //#8cb1ff; // ffa7c4
+$named: #ef9d0e;
+$string: #7db135; //rgb(173, 219, 103);
+$tag: #4fb4d8;
+$value: #fffd5d;
+$punctuation: #899aa7;
+$operator: #bbbbbb;
+$base: #e4e3cf;
+
+/**
+ * Based on copypasta from Remy Bach and Sarah Drasner
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: $base;
+  background: none;
+  font-family: Fira Code, Consolas, Menlo, Monaco, source-code-pro, Courier New,
+    monospace;
+  font-feature-settings: normal;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  overflow: auto;
+  padding: 1.3125rem;
+}
+
+pre[class*="language-"]::-moz-selection {
+  /* Firefox */
+  background: hsl(207, 4%, 16%);
+}
+
+pre[class*="language-"]::selection {
+  /* Safari */
+  background: hsl(207, 4%, 16%);
+}
+
+/* Text Selection colour */
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
+  text-shadow: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  line-height: normal;
+  border-radius: 0.22em;
+  background: $inlineCode-bg;
+  color: $inlineCode-text;
+  padding: 0.15em 0.4em;
+  white-space: normal;
+  font-size: 85%;
+}
+
+.token.attr-name {
+  color: $string;
+  font-style: italic;
+}
+
+.token.comment {
+  color: rgb(128, 147, 147);
+}
+
+.token.string,
+.token.url {
+  color: $string;
+}
+
+.token.variable {
+  color: rgb(214, 222, 235);
+}
+.token.boolean,
+.token.number {
+  color: $value;
+}
+
+.token.builtin,
+.token.char,
+.token.constant,
+.token.function {
+  color: $named;
+}
+
+.token.punctuation {
+  color: $punctuation;
+}
+
+.token.selector,
+.token.doctype {
+  color: rgb(199, 146, 234);
+  font-style: "italic";
+}
+
+.token.class-name {
+  color: $keyword(255, 203, 139);
+}
+
+.token.tag,
+.token.operator,
+.token.keyword {
+  color: $keyword;
+}
+
+.token.property {
+  color: rgb(128, 203, 196);
+}
+
+.token.namespace {
+  color: rgb(178, 204, 214);
+}
+
+.token.interpolation-punctuation.token.punctuation {
+  color: $base;
+}
+
+pre[data-line] {
+  padding: 1em 0 1em 3em;
+  position: relative;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #212121;
+  display: block;
+  margin-right: -1.3125rem;
+  margin-left: -1.3125rem;
+  padding-right: 1em;
+  padding-left: 1.25em;
+  border-left: 0.3em solid $named;
+}
+
+.gatsby-highlight {
+  margin-bottom: 1.75rem;
+  margin-left: -1.3125rem;
+  margin-right: -1.3125rem;
+  border-radius: 10px;
+  background: $bg;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .gatsby-highlight {
+    border-radius: 0;
+  }
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  float: left;
+  min-width: 100%;
+}
