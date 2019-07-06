@@ -53,13 +53,10 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+      <p style={{ whiteSpace: "pre-wrap" }}>
+        Written by{` `}
+        <a href="https://github.com/hewonjeong">Hewon Jeong</a>
+        {"\n고민하고 공부했던 것들을 정리하고 있습니다.🏃🏻‍♂️"}
       </p>
     </div>
   )
