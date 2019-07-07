@@ -5,8 +5,19 @@ import "./global.scss"
 
 Wordpress2016.overrideThemeStyles = () => {
   return {
+    blockquote: {
+      marginLeft: "-1.1rem",
+      lineHeight: "1.9rem",
+      color: "inherit",
+      fontStyle: "auto",
+      borderWidth: "0.25rem",
+    },
+
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
+    },
+    "a.anchor": {
+      boxShadow: "none",
     },
   }
 }
