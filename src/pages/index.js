@@ -22,6 +22,7 @@ class BlogIndex extends React.Component {
                 <h3
                   style={{
                     fontWeight: 600,
+                    fontFamily: '"san-serif", "Noto Sans KR"',
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
@@ -29,10 +30,25 @@ class BlogIndex extends React.Component {
                     {title}
                   </Link>
                 </h3>
-                <small>{node.frontmatter.date}</small>
+                <small>
+                  {node.frontmatter.date}
+                  {node.frontmatter.tags && (
+                    <>
+                      {" • "}
+                      <ul className="tags">
+                        {node.frontmatter.tags.map(tag => (
+                          <li>
+                            <Link to="#">{tag}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </small>
               </header>
               <section>
                 <p
+                  style={{ fontFamily: '"san-serif", "Noto Sans KR"' }}
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}
@@ -46,6 +62,14 @@ class BlogIndex extends React.Component {
   }
 }
 
+const styles = {
+  tags: {
+    display: "inline",
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+  },
+}
 export default BlogIndex
 
 export const pageQuery = graphql`
@@ -66,6 +90,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
