@@ -37,8 +37,8 @@ class BlogIndex extends React.Component {
                       {" • "}
                       <ul className="tags">
                         {node.frontmatter.tags.map(tag => (
-                          <li>
-                            <Link to="#">{tag}</Link>
+                          <li key="tag">
+                            <Link to="/">{tag}</Link>
                           </li>
                         ))}
                       </ul>
@@ -62,14 +62,6 @@ class BlogIndex extends React.Component {
   }
 }
 
-const styles = {
-  tags: {
-    display: "inline",
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-  },
-}
 export default BlogIndex
 
 export const pageQuery = graphql`
