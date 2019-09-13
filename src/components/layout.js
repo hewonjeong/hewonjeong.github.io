@@ -14,6 +14,7 @@ class Layout extends React.Component {
         <h1
           style={{
             ...scale(1),
+            fontFamily: "Montserrat, sans-serif",
             marginBottom: rhythm(1.2),
             marginTop: 0,
           }}

@@ -22,7 +22,6 @@ class BlogIndex extends React.Component {
                 <h3
                   style={{
                     fontWeight: 600,
-                    fontFamily: '"san-serif", "Noto Sans KR"',
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
@@ -30,7 +29,11 @@ class BlogIndex extends React.Component {
                     {title}
                   </Link>
                 </h3>
-                <small>
+                <small
+                  style={{
+                    fontFamily: `Merriweather, sans-serif, "Noto Sans KR"`,
+                  }}
+                >
                   {node.frontmatter.date}
                   {node.frontmatter.tags && (
                     <>
@@ -48,7 +51,6 @@ class BlogIndex extends React.Component {
               </header>
               <section>
                 <p
-                  style={{ fontFamily: '"san-serif", "Noto Sans KR"' }}
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}

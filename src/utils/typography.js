@@ -12,7 +12,9 @@ Wordpress2016.overrideThemeStyles = () => {
       fontStyle: "auto",
       borderWidth: "0.25rem",
     },
-
+    "h1, h2, h3": {
+      fontFamily: "inherit",
+    },
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
     },
