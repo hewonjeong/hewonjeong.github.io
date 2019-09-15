@@ -1,7 +1,8 @@
 @import "./code.scss";
 
 body {
-  font-family: san-serif, "Noto Sans KR";
+  font-family: sans-serif, "Noto Sans KR";
+  font-display: fallback;
 }
 
 article {

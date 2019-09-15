@@ -29,18 +29,14 @@ class BlogIndex extends React.Component {
                     {title}
                   </Link>
                 </h3>
-                <small
-                  style={{
-                    fontFamily: `Merriweather, sans-serif, "Noto Sans KR"`,
-                  }}
-                >
+                <small>
                   {node.frontmatter.date}
                   {node.frontmatter.tags && (
                     <>
                       {" • "}
                       <ul className="tags">
                         {node.frontmatter.tags.map(tag => (
-                          <li key="tag">
+                          <li key={tag}>
                             <Link to="/">{tag}</Link>
                           </li>
                         ))}
