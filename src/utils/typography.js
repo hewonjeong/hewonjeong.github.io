@@ -6,11 +6,15 @@ import "./global.scss"
 Wordpress2016.overrideThemeStyles = () => {
   return {
     blockquote: {
-      marginLeft: "-1.1rem",
+      marginLeft: 0,
+      marginRight: 0,
       lineHeight: "1.9rem",
       color: "inherit",
-      fontStyle: "auto",
+      fontStyle: "inherit",
       borderWidth: "0.25rem",
+    },
+    "ul, ol": {
+      marginLeft: "1.75rem",
     },
     "h1, h2, h3": {
       fontFamily: "inherit",
