@@ -1,8 +1,8 @@
 ---
-title: React 렌더 성능 최적화하기 (slow render vs re-render)
+title: React 렌더 성능 최적화하기 (slow render vs. re-render)
 date: "2019-09-13"
 description: "느린 렌더링을 먼저 수정하고, 여전히 필요하다면 불필요한 re-render를 처리"
-tags: ["React", "Performace"]
+tags: ["React", "Performance"]
 ---
 
 [Kent C. Dodds](https://kentcdodds.com)의 [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)를 읽으면서 정리한 내용입니다.
@@ -11,7 +11,7 @@ tags: ["React", "Performace"]
 
 React가 처음 나왔을 때 가장 주목받은 부분은 기존 UI 라이브러리와 구분되는 "Virtual DOM"을 통한 성능 개선이었습니다.
 
-기존DOM을 여러번 업데이트하는 방식 ( `element.appendChild(childElement)` 호출 등)은 여러번 업데이트 하게 되면서 성능 문제가 가중됩니다.
+기존DOM을 여러번 업데이트하는 방식 (`element.appendChild(childElement)` 호출 등)은 여러번 업데이트 하게 되면서 성능 문제가 가중됩니다.
 
 그래서 React는 **"모든 DOM 업데이트를 일괄 처리 (batch DOM updates)"** 합니다. (즉, DOM 업데이트가 30번 발생하면 모아서 한 번에 업데이트를 실행합니다.)
 
@@ -20,14 +20,14 @@ React가 처음 나왔을 때 가장 주목받은 부분은 기존 UI 라이브�
 이 과정을 정리하면,
 
 ```
-render → reconcilitation → commit
+render → reconciliation → commit
       ↖                   ↙
           state change
 ```
 
 - **render**: React가 React elements를 얻기 위해 우리가 작성한 함수를 호출하는 시기 ([learn more](https://kentcdodds.com/blog/what-is-jsx))
-- **reconiliation**: React가 이전에 렌더된 엘리먼트와 위 render 과정에서 얻은 React elements를 비교하는 시기 ([learn more](https://ko.reactjs.org/docs/reconciliation.html))
-- **commit**: React가 reconiliation에서 발견한 차이(differences)를 DOM에 업데이트하는 과정
+- **reconciliation**: React가 이전에 렌더된 엘리먼트와 위 render 과정에서 얻은 React elements를 비교하는 시기 ([learn more](https://ko.reactjs.org/docs/reconciliation.html))
+- **commit**: React가 reconciliation 발견한 차이(differences)를 DOM에 업데이트하는 과정
 
 일반적으로 위 과정 중 가장 느린 부분은 DOM이 업데이트되는 'commit' phase입니다. (모든 DOM updates가 느린 건 아닙니다. 예를 들어, event listener를 추가/삭제하는 업데이트는 굉장히 빠르다. DOM의 느린 부분은 ["layout"](https://www.youtube.com/watch?v=3bc71-xzoWA) 과정입니다.)
 
@@ -58,11 +58,11 @@ function Counter() {
 
 "render"와 "commit"의 차이에 대해 헤깔리기 쉽습니다. 사람들은 "DOM은 느리다."라는 것은 잘 알고 있지만, "컴포넌트의 re-render가 DOM를 의미하는 건 아니다."라는 것을 자주 놓치곤 합니다. 이러한 오해 때문에 실제로 컴포넌트를 업데이트 할 필요가 없을 때 컴포넌트 호출되는 render가 성능 병목 현상이라고 생각하는 것 입니다.
 
-이런 게 문제가 되는 상황도 있지만, **일반적으로 심지어 저가형 모바일 기기의 브라우저에서도 객체를 생성하고(render phase), 비교하는 과정(reconcilation phase)은 굉장히 빠릅니다.** 그렇다면 re-render에서 무엇이 문제일까요?
+이런 게 문제가 되는 상황도 있지만, **일반적으로 심지어 저가형 모바일 기기의 브라우저에서도 객체를 생성하고(render phase), 비교하는 과정(reconciliation phase)은 굉장히 빠릅니다.** 그렇다면 re-render에서 무엇이 문제일까요?
 
 ## 🤛느린 renders
 
-JavaScript가 render와 reconcilation 과정을 처리하는 게 굉장히 빠르다면서 왜 불필요한 re-render 과정에서 앱이 멈추는 걸까요? 이런 경우 일반적으로 느린 렌더가 문제인 경우가 많습니다.
+JavaScript가 render와 reconciliation 과정을 처리하는 게 굉장히 빠르다면서 왜 불필요한 re-render 과정에서 앱이 멈추는 걸까요? 이런 경우 일반적으로 느린 렌더가 문제인 경우가 많습니다.
 
 어떤 코드가 render 과정에서 앱을 느리게 하는 어떤 일을 하고 있는 것입니다. 우리는 어떤 코드가 그런 문제를 일으키는지 진단하고 수정해야 합니다.
 
