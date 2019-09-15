@@ -14,7 +14,7 @@ Wordpress2016.overrideThemeStyles = () => {
       borderWidth: "0.25rem",
     },
     "ul, ol": {
-      marginLeft: "1.75rem",
+      marginLeft: "1.2rem",
     },
     "h1, h2, h3": {
       fontFamily: "inherit",
