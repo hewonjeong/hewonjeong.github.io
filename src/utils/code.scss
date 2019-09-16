@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/@typopro/web-fira-code@3.7.5/TypoPRO-FiraCode.css");
+@import url("https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css");
 
 $bg: #151515;
 $bg-highligted: #242424; // hsla(207, 95%, 15%, 1)
@@ -46,7 +46,8 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-  overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
   padding: 1.3125rem;
 }
 
