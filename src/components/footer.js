@@ -9,28 +9,20 @@ const Footer = () => {
         paddingTop: rhythm(1),
       }}
     >
-      {/* <div style={{ float: "right" }}>
-        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
-          rss
-        </a>
-      </div> */}
-      <a
-        href="https://mobile.twitter.com/hewonjeong"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        twitter
-      </a>
-      {" • "}
-      <a
-        href="https://github.com/hewonjeong"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        github
-      </a>{" "}
+      <Link link="https://github.com/hewonjeong" text="github" />
+      <Dot />
+      <Link link="https://mobile.twitter.com/hewonjeong" text="twitter" />
     </footer>
   )
 }
 
+const Dot = () => " • "
+
+const Link = ({ link, text }) => {
+  return (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      {text}
+    </a>
+  )
+}
 export default Footer
