@@ -299,7 +299,7 @@ React는 갱신 함수들을 큐에 쌓아놓고 나중에 순서대로 실행�
 
 React는 내부적으로 현재 렌더되어 있는 컴포넌트를 기억하기 위해 자체적인 호출 스택이 있다. (e.g. 가령 `[App, Page, Layout, Article /** 현재 렌더링 하는 부분 **/])`
 
-이 트리들은 상호작용하기 위해서 계속 살아 있어야 한다. 즉 Article 컴포넌트의 렌더가 끝나도 React 호출 트리는 파괴되지 않는다. local state와 호스트 인스턴스의 참조를 [어딘가에](https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7) 유지해야 합니다.
+이 트리들은 상호작용하기 위해서 계속 살아 있어야 한다. 즉 Article 컴포넌트의 렌더가 끝나도 React 호출 트리는 파괴되지 않는다. local state와 호스트 인스턴스의 참조를 [어딘가에](https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7) 유지해야 한다.
 
 호출 트리 프레임은 재조정 규칙에 따라 지역 상태, 호스트 인스턴스와 함께 파괴됩니다. React 소스를 읽어봤다면 이러한 프레임을 [파이버](https://en.wikipedia.org/wiki/Fiber_(computer_science))라고 부르는 것을 볼 수 있다.
 
