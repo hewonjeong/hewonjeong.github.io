@@ -1,7 +1,7 @@
 ---
-title: React는 어떻게 동작하는가
+title: "React In Depth: 프로그래밍 모델과 원리"
 date: "2019-09-28"
-description: "리액트는 어떻게 동작할까? React와 내부 개념들에 대한 간략한 정리"
+description: "React는 어떻게 동작할까? 왜 그렇게 동작할까? 얼핏 들었던 내부 개념들에 대한 정리"
 tags: ["React"]
 ---
 
