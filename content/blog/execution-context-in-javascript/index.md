@@ -34,7 +34,7 @@ tags: ["JavaScript"]
 function a() { /* ... */ } // function declaration (함수 선언문). 함수명 a가 곧 변수명
 a(); // 실행 OK
 
-var b = function() { /*...*/ }; // function expression (함수 표현식). 변수명 b가 곧 변수명
+var b = function() { /* ... */ }; // function expression (함수 표현식). 변수명 b가 곧 변수명
 b(); //실행 OK
 ```
 
