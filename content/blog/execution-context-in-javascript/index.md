@@ -1,7 +1,7 @@
 ---
-title: JavaScript의 Execution Context
+title: JavaScript의 실행 컨텍스트 (Execution Context)
 date: "2019-10-06"
-description: "실행 컨텍스트(Execution Context)란 실행할 코드에 제공할 환경 정보들을 모아놓은 객체이다."
+description: "실행 컨텍스트(Execution Context)란 실행할 코드에 제공할 환경 정보들을 모아놓은 객체이다. 활성화되는 시점에 VariableEnvironment, LexicalEnvironment, ThisBinding의 세 가지 정보를 수집한다."
 tags: ["JavaScript"]
 ---
 
