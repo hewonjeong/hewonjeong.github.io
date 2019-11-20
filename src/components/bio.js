@@ -55,8 +55,8 @@ const Bio = () => {
       />
       <p style={{ whiteSpace: "pre-wrap" }}>
         Written by{` `}
-        <a href="https://github.com/hewonjeong">Hewon Jeong</a>
-        {"\n고민하고 공부했던 것들을 정리하고 있습니다.🏃🏻‍♂️"}
+        <a href="https://twitter.com/hewonjeong">Hewon Jeong</a>
+        {"\n기록은 기억을 지배한다.✍🏻"}
       </p>
     </div>
   )
