@@ -5,7 +5,9 @@ description: "디자인 시스템에 TypeScript를 적용하여 인터페이스 
 tags: ["TypeScript", "Design System", "React"]
 ---
 
-JSConf Korea 2019의 ["How TypeScript Can Power Design System"](https://youtu.be/hbsIOHktvfo) 발표를 보고 정리한 내용입니다.
+[JSConf Korea 2019](https://2019.jsconfkorea.com/)의 ["How TypeScript Can Power Design System"](https://youtu.be/hbsIOHktvfo) 발표를 보고 정리한 내용입니다.
+
+![](components.jpg)
 
 ## 발표자 소개
 
@@ -51,7 +53,7 @@ JSConf Korea 2019의 ["How TypeScript Can Power Design System"](https://youtu.be
 
     관념화한 컴포넌트가 필요하다고 판단되면 디자인에 착수합니다. 아래는 Twitch에서 디자이너들이 사용하는 [Figma](https://www.figma.com/) UI kit의 Pill 컴포넌트 예시입니다.
 
-    ![](pill-ui-kit.png)
+    ![](pill-ui-kit.jpg)
 
 3. **`Code`**
 
@@ -106,13 +108,13 @@ JSConf Korea 2019의 ["How TypeScript Can Power Design System"](https://youtu.be
     Pill.displayName = "Pill";
     ```
 
-    ![](pill-document.png)
+    ![](pill-document.jpg)
 
 4. **`Procuction`**
 
     웹 사이트, 모바일 웹 등 모든 타입의 웹앱 프로덕션에서 쓰일 수 있는 단계입니다. `Pill` 컴포넌트를 동료 디자이너, 개발자들이 상태를 표현하기 위한 UI로 사용할 수 있게 되었습니다.👏🏻
 
-    ![](pill-on-production.png)
+    ![](pill-on-production.jpg)
 
 ## TypeScript는 무엇인가?
 
@@ -187,7 +189,7 @@ JSConf Korea 2019의 ["How TypeScript Can Power Design System"](https://youtu.be
 
     타입스크립트로 작성된 컴포넌트의 interface를 읽어 각 컴포넌트의 props 정보를 문서화하여 다른 개발자들이 참조하기 쉽도록 제공할 수 있습니다. 
 
-    ![](design-system-document.png)
+    ![](design-system-document.jpg)
 
 3. **기능성 테스트를 위한 Playground**
 
