@@ -147,7 +147,7 @@ JSConf Korea 2019의 ["How TypeScript Can Power Design System"](https://youtu.be
 
 3. **export 가능한 인터페이스**
 
-    ```typescript
+    ```typescript{1,9}
     export interface CoreInteractivePublicProps extends CoreMouseHandlers {
       ariaLabel?: string;
       autoFocus?: boolean;
