@@ -1,6 +1,6 @@
 ---
 title: '[번역] 심층 분석: React Hook은 실제로 어떻게 동작할까?'
-date: 2019-11-29
+date: 2019-11-26
 description: 'TODO'
 tags: ['React', 'JavaScript']
 ---
