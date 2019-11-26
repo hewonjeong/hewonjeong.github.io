@@ -23,7 +23,7 @@ tags: ['React', 'JavaScript']
 
 Hooks가 [내세우는 많은 장점](https://reactjs.org/docs/hooks-intro.html#classes-confuse-both-people-and-machines) 중 하나는 클래스와 고차 컴포넌트의 복잡성을 피할 수 있다는 것입니다. 그러나 hooks를 사용하면 그 문제가 그저 다른 문제로 바뀐 것처럼 느껴지기도 합니다. [bind된 컨텍스트에 대해 걱정](https://overreacted.io/how-are-function-components-different-from-classes/)할 필요가 없는 대신 [클로저에 대해 걱정](https://overreacted.io/making-setinterval-declarative-with-react-hooks/)해야 하기 때문입니다. [Mark Dalgleish](https://twitter.com/markdalgleish/status/1095025468367990784)가 이에 대해 명쾌하게 정리해주었습니다.
 
-![React Hook와 클로저에 관한 스타워즈 드립](/tweet-markdalgleish-hooks.jpg 'React Hook와 클로저에 관한 스타워즈 드립')
+![React Hook와 클로저에 관한 스타워즈 드립](/tweet-mark-dalgleish-hooks.jpg 'React Hook와 클로저에 관한 스타워즈 드립')
 
 클로저는 JS의 기본적인 개념이지만 많은 갓 시작한 개발자에게 혼란을 주는 것으로도 악명이 높습니다. [You Don’t Know JS](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch6.md)의 저자로 유명한 카일 심슨(Kyle Simpson)은 클로저를 다음과 같이 정의하였습니다.
 
