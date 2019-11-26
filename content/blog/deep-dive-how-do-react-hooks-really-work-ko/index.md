@@ -4,8 +4,12 @@ date: 2019-11-29
 description: 'TODO'
 tags: ['React', 'JavaScript']
 ---
+[Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)을 저자, [Swyx](https://twitter.com/swyx)의 허락을 받고 번역한 글입니다.
 
-[Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)을 저자의 허락을 받고 번역한 글입니다.
+![클로저 다이어그램](/closure-diagram.jpg)
+*<center>클로저는 함수와 그 함수가 선언됐을 때의 렉시컬 환경(Lexical environment)의 조합이다. - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)</center>*
+
+---
 
 > 필자의 노트: 이 글에 내용을 덧붙여 [발표로 만들었습니다](https://www.swyx.io/speaking/react-hooks/). 또한, 이 글에서는 [React 스케줄러](https://www.swyx.io/speaking/react-not-reactive/)나 [상태가 실제로 React에 저장되는 방식](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889)에 대해서는 다루지 않습니다.
 
