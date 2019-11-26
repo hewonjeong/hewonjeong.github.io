@@ -216,7 +216,7 @@ App = MyReact.render(Counter)
 
 ## 마법이 아니라 배열일 뿐
 
-지금까지 `useState`와 `useEffect`의 기능을 그럴듯하게 갖춘 복제본을 만들었습니다. 하지만 둘 다 잘못 구현된 [싱글턴](https://en.wikipedia.org/wiki/Singleton_pattern) 형태입니다. (각각 하나 이상이 존재하면 버그가 발생합니다.) 좀 더 흥미로운 것들을 구현하려면 (그리고 오래된 클로저에 대한 마지막 예제를 보여드리려면) 여러 개의 상태(state)와 효과(effect)를 받을 수 있는 일반적인 형태로 구현되어야 합니다. 다행히 [Rudi Yardley의 글처럼](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e), React Hooks는 마법이 아니라 배열일 뿐입니다. `hooks` 배열을 추가해봅시다. 또한 `_val`과 `_deps`가 서로 겹쳐지지 않기 때문에 `hooks` 배열에 하나로 합칠 수 있습니다.
+지금까지 `useState`와 `useEffect`의 기능을 그럴듯하게 갖춘 복제본을 만들었습니다. 하지만 둘 다 잘못 구현된 [싱글톤](https://en.wikipedia.org/wiki/Singleton_pattern) 형태입니다. (각각 하나 이상이 존재하면 버그가 발생합니다.) 좀 더 흥미로운 것들을 구현하려면 (그리고 오래된 클로저에 대한 마지막 예제를 보여드리려면) 여러 개의 상태(state)와 효과(effect)를 받을 수 있는 일반적인 형태로 구현되어야 합니다. 다행히 [Rudi Yardley의 글처럼](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e), React Hooks는 마법이 아니라 배열일 뿐입니다. `hooks` 배열을 추가해봅시다. 또한 `_val`과 `_deps`가 서로 겹쳐지지 않기 때문에 `hooks` 배열에 하나로 합칠 수 있습니다.
 
 ```js
 // 예제 4
