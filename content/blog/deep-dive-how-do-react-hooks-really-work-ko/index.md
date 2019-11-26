@@ -1,7 +1,7 @@
 ---
 title: '[번역] 심층 분석: React Hook은 실제로 어떻게 동작할까?'
 date: 2019-11-26
-description: 'TODO'
+description: 'React Hook에 대해 이해하려면 JavsScript 클로저에 대해 잘 알아야합니다. React의 작은 복제본을 만들어보며 클로저와 hook의 동작 방식을 알아봅니다.'
 tags: ['React', 'JavaScript']
 ---
 [Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)을 저자, [Swyx](https://twitter.com/swyx)의 허락을 받고 번역한 글입니다.
