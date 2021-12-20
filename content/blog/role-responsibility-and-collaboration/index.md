@@ -2,7 +2,7 @@
 title: 역할, 책임, 협력
 date: "2019-10-20"
 description: "객체지향의 세계에서 기능은 객체들 간의 상호 작용들 통해 구현된다. 그리고 그 상호작용은 객체 사이에 주고 받는 메시지로 표현된다."
-tags: ["오브젝트", "OOD"]
+tags: ["오브젝트", "OOD", "Programming"]
 ---
 
 [《오브젝트: 코드로 이해하는 객체지향 설계》](https://book.naver.com/bookdb/book_detail.nhn?bid=15007773)의 ‘역할, 책임, 협력’ 파트를 읽고 정리한 내용입니다.

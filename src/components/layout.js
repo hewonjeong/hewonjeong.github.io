@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { Link } from 'gatsby'
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm, scale } from '../utils/typography'
 
 class Layout extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class Layout extends React.Component {
         <h1
           style={{
             ...scale(0.75),
-            fontFamily: "Montserrat, sans-serif",
+            fontFamily: 'Montserrat, sans-serif',
             marginBottom: rhythm(1.2),
             marginTop: 0,
           }}

@@ -1,5 +1,5 @@
-import React from "react"
-import { rhythm } from "../utils/typography"
+import React from 'react'
+import { rhythm } from '../utils/typography'
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
   )
 }
 
-const Dot = () => " • "
+const Dot = () => ' • '
 
 const Link = ({ link, text }) => {
   return (
