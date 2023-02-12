@@ -1,10 +1,9 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,7 +13,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
+        <Seo
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
           tags={post.frontmatter.tags}
@@ -36,19 +35,16 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: rhythm(1),
               }}
             >
-              {post.frontmatter.date}
+              {post.frontmatter.dat}
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
               marginTop: rhythm(3),
-              marginBottom: rhythm(1),
+              marginBottom: rhythm(1.5),
             }}
           />
-          <footer>
-            <Bio />
-          </footer>
         </article>
 
         <nav>
@@ -90,7 +86,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
+        # author
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

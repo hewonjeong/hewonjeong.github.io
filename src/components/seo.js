@@ -18,7 +18,7 @@ function SEO({ description, lang, meta, title, tags = [] }) {
           siteMetadata {
             title
             description
-            author
+            # author
           }
         }
       }
