@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://hewonjeong.github.io">
-    <img alt="earth" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/232/earth-globe-asia-australia_1f30f.png" width="80" />
+    <img alt="earth" src="https://user-images.githubusercontent.com/20923534/219956599-24a93b6e-260a-43f4-9698-7bbffbd259ce.png" width="80" />
   </a>
 </p>
 
