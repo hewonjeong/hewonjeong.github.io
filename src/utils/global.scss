@@ -1,7 +1,7 @@
-@import "./code.scss";
+@import './code.scss';
 
 body {
-  font-family: sans-serif, "Noto Sans KR";
+  font-family: sans-serif, 'Noto Sans KR';
 }
 
 .tags,
@@ -18,5 +18,10 @@ body {
 }
 
 .tags li:not(:first-child)::before {
-  content: ", ";
+  content: ', ';
+}
+
+a.anchor.before {
+  top: -3px;
+  padding-right: 6px;
 }
