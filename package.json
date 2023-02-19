@@ -4,13 +4,10 @@
   "description": "https://hewonjeong.github.io",
   "version": "0.1.0",
   "author": "Hewon Jeong <hewon.jng@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "dependencies": {
     "gatsby": "^5.5.0",
     "gatsby-plugin-feed": "^5.5.0",
-    "gatsby-plugin-google-analytics": "^5.5.0",
+    "gatsby-plugin-google-tagmanager": "^5.6.0",
     "gatsby-plugin-image": "^3.5.0",
     "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-plugin-sass": "^6.5.0",

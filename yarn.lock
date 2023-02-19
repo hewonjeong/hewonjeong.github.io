@@ -1006,7 +1006,7 @@
     "@babel/helper-validator-option" "^7.18.6"
     "@babel/plugin-transform-typescript" "^7.18.6"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.20.7", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.12.5", "@babel/runtime@^7.20.13", "@babel/runtime@^7.20.7", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.20.13"
   resolved "https://registry.sendbird.com/@babel%2fruntime/-/runtime-7.20.13.tgz#7055ab8a7cff2b8f6058bf6ae45ff84ad2aded4b"
   integrity sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==
@@ -5279,13 +5279,12 @@ gatsby-plugin-feed@^5.5.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-google-analytics@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.sendbird.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-5.5.0.tgz#1784230ec79c7fb531a25b2f5f96a4200e6bad4c"
-  integrity sha512-/OfFZd7ciXkft6Pq6J2lCMTewuhNfQd/2cKWqLiWSD0okw6OXH8swJ/VOk6yIDW8i3EULvlsbofxIVZD0Loeig==
+gatsby-plugin-google-tagmanager@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.sendbird.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-5.6.0.tgz#5e9b634672f8bfc853549729a672d047eef8b036"
+  integrity sha512-97k7MxQ7uBP8aSk+sdsGqeP05PpeSqtBJ8+qEuhUcWdM1M0k53WyWKlOwTMmuAmsEpue9f1Fj1mepu7vRs6uPA==
   dependencies:
-    "@babel/runtime" "^7.20.7"
-    minimatch "^3.1.2"
+    "@babel/runtime" "^7.20.13"
     web-vitals "^1.1.2"
 
 gatsby-plugin-image@^3.5.0:
