@@ -3,12 +3,7 @@ import { rhythm } from '../utils/typography'
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        marginTop: rhythm(2.5),
-        paddingTop: rhythm(1),
-      }}
-    >
+    <footer style={{ marginTop: rhythm(3.5) }}>
       <Link link="https://github.com/hewonjeong" text="github" />
       <Dot />
       <Link link="https://mobile.twitter.com/hewonjeong" text="twitter" />
