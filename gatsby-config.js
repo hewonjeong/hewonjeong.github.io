@@ -66,6 +66,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'G-LTCZB74GE7',
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
@@ -129,12 +136,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'G-LTCZB74GE7',
-        enableWebVitalsTracking: true,
-      },
-    },
   ],
 }
