@@ -5,12 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from 'react'
 
-function SEO({ description, lang, meta, title, tags = [] }) {
+function SEO({ description, title, tags = [], children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,6 +17,7 @@ function SEO({ description, lang, meta, title, tags = [] }) {
           siteMetadata {
             title
             description
+            siteUrl
           }
         }
       }
@@ -27,55 +27,18 @@ function SEO({ description, lang, meta, title, tags = [] }) {
   const metaDescription = description || site.siteMetadata.description
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: 'keywords',
-          content: tags.join(','),
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: title,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: 'google-site-verification',
-          content: 'be2uzyYcQ2GWK1p5IecE5TaI3D5OSz8NQMiKLZsnsao',
-        },
-      ].concat(meta)}
-    />
+    <>
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      {tags.length && <meta name="keywords" content={tags.join(',')} />}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      {children}
+    </>
   )
 }
 

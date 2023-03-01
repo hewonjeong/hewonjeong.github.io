@@ -44,6 +44,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -116,7 +117,7 @@ module.exports = {
               }
             }`,
             output: '/rss.xml',
-            title: 'Gatsby Starter Blog RSS Feed',
+            title: 'Hewon Jeong’s Blog RSS Feed',
           },
         ],
       },

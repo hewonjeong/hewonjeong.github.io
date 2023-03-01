@@ -13,11 +13,6 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <Seo
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-          tags={post.frontmatter.tags}
-        />
         <article>
           <header>
             <h1
@@ -79,6 +74,16 @@ class BlogPostTemplate extends React.Component {
 
 export default BlogPostTemplate
 
+export const Head = ({ data: { markdownRemark: post } }) => {
+  return (
+    <Seo
+      title={post.frontmatter.title}
+      description={post.frontmatter.description}
+      tags={post.frontmatter.tags}
+    />
+  )
+}
+
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
@@ -95,6 +100,9 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+      }
+      fields {
+        slug
       }
     }
   }
