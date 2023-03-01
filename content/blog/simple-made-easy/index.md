@@ -10,8 +10,6 @@ tags: ['Programming', 'Design']
 - 발표 영상: ["Simple Made Easy" - Rich Hickey (2011)](https://youtube.com/watch?v=SxdOUGdseq4)
 - 번역: [쉽게 풀이한 단순함](https://muchtrans.com/translations/simple-made-easy.ko.html)
 
-> 신뢰성의 전제 조건은 단순성이다 - Edsger W. Dijkstra
-
 ![](hero.png)
 
 # 단순함과 쉬움의 차이
