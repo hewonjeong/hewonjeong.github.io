@@ -1,29 +1,32 @@
-import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import Typography from 'typography'
+import Wordpress2016 from 'typography-theme-wordpress-2016'
 
-import "./global.scss"
+import './global.scss'
 
 Wordpress2016.overrideThemeStyles = () => {
   return {
     blockquote: {
       marginLeft: 0,
       marginRight: 0,
-      lineHeight: "1.9rem",
-      color: "inherit",
-      fontStyle: "inherit",
-      borderWidth: "0.25rem",
+      lineHeight: '1.9rem',
+      color: 'inherit',
+      fontStyle: 'inherit',
+      borderWidth: '0.25rem',
     },
-    "ul, ol": {
-      marginLeft: "1.2rem",
+    'ul, ol': {
+      marginLeft: '1.2rem',
     },
-    "h1, h2, h3": {
-      fontFamily: "inherit",
+    li: {
+      marginBottom: 'calc(1rem / 2)',
     },
-    "a.gatsby-resp-image-link": {
+    'h1, h2, h3': {
+      fontFamily: 'inherit',
+    },
+    'a.gatsby-resp-image-link': {
       boxShadow: `none`,
     },
-    "a.anchor": {
-      boxShadow: "none",
+    'a.anchor': {
+      boxShadow: 'none',
     },
   }
 }

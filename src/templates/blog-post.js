@@ -38,7 +38,10 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.dat}
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section
+            className="article"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
           <hr style={{ marginTop: rhythm(3), marginBottom: rhythm(0.5) }} />
         </article>
 
