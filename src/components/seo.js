@@ -28,7 +28,7 @@ function SEO({ description, title, tags = [], children }) {
 
   return (
     <>
-      <title>{title}</title>
+      <title>{[title, site.siteMetadata.title].join(' | ')}</title>
       <meta name="description" content={metaDescription} />
       {tags.length && <meta name="keywords" content={tags.join(',')} />}
       <meta property="og:title" content={title} />
