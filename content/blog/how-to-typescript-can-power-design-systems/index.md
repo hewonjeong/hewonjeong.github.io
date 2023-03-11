@@ -11,7 +11,7 @@ tags: ['TypeScript', 'Design System', 'React']
 
 ## 발표자 소개
 
-[Isha Kasliwal](https://twitter.com/ikasliwal)은 Twitch의 Design System 팀에 시니어 UI/UX Designer/Developer입니다. 이전에는 Salesforce의 [Ligntning Design System](https://www.lightningdesignsystem.com/) 팀에서 일했다고 합니다.
+[Isha Kasliwal](https://twitter.com/ikasliwal)은 Twitch의 Design System 팀에 시니어 UI/UX Designer/Developer입니다. 이전에는 Salesforce의 [Lightning Design System](https://www.lightningdesignsystem.com/) 팀에서 일했다고 합니다.
 
 ## 디자인 시스템은 무엇인가?
 
@@ -45,17 +45,17 @@ tags: ['TypeScript', 'Design System', 'React']
 
 ### 개발 프로세스 예시
 
-1. **`Ideation(관념화)`**
+1. **Ideation (관념화)**
 
    일반적으로 특정 컴포넌트가 필요한지 관념화하는 과정부터 시작합니다. 예시로 Twitch의 디자인 시스템 팀에서는 *다른 엘리먼트와 함께 한 줄에 상태를 표시해 줄 수 있는 UI 엘리먼트*가 필요하다는 것을 발견하였습니다. UX 리서치와 모범 사례들을 통해 알약처럼 생긴 UI가 가장 적합하다고 결론 내렸습니다.
 
-2. **`Design`**
+2. **Design**
 
    관념화한 컴포넌트가 필요하다고 판단되면 디자인에 착수합니다. 아래는 Twitch에서 디자이너들이 사용하는 [Figma](https://www.figma.com/) UI kit의 Pill 컴포넌트 예시입니다.
 
    ![](pill-ui-kit.jpg)
 
-3. **`Code`**
+3. **Code**
 
    많은 디자인 시스템 팀의 주된 목표는 view layer와 다른 엔지니어들이 손쉽게 사용 가능한 API를 제공하는 것입니다. 이를 위한 디자인에 관련된 많은 옵션, 규칙과 문서들을 React, JavaScript, TypeScript를 사용하여 관리할 수 있습니다.
 
@@ -76,7 +76,7 @@ tags: ['TypeScript', 'Design System', 'React']
    export interface PillProps {
      label: string
      type?: PillType
-     transfrom?: TextTransform
+     transform?: TextTransform
    }
 
    export const Pill: React.SFC<PillProps> = props => {
@@ -91,12 +91,12 @@ tags: ['TypeScript', 'Design System', 'React']
      return (
        <CoreText
          type={TextType.Span}
-         transfrom={props.transform}
+         transform={props.transform}
          fontWeight={FontWeight.SemiBold}
          className={cn(classes)}
          {...getDataProps(props)}
        >
-         {props.lable}
+         {props.label}
        </CoreText>
      )
    }
@@ -110,7 +110,7 @@ tags: ['TypeScript', 'Design System', 'React']
 
    ![](pill-document.jpg)
 
-4. **`Procuction`**
+4. **Production**
 
    웹 사이트, 모바일 웹 등 모든 타입의 웹앱 프로덕션에서 쓰일 수 있는 단계입니다. `Pill` 컴포넌트를 동료 디자이너, 개발자들이 상태를 표현하기 위한 UI로 사용할 수 있게 되었습니다.👏🏻
 
@@ -133,7 +133,7 @@ tags: ['TypeScript', 'Design System', 'React']
      to?: history.LocationDescriptor
      underline?: boolean
      hoverUnderlineNone?: boolean
-     hoverColorInherit?: bollean
+     hoverColorInherit?: boolean
    }
    ```
 
@@ -168,7 +168,7 @@ tags: ['TypeScript', 'Design System', 'React']
 
    인터페이스로 컴포넌트의 의도를 매끄럽게 표현할 수 있습니다. (내부 구현을 노출하지 않고 컴포넌트가 무엇을 필요로 하고, 행할 수 있는지를 나타낼 수 있기 때문)
 
-   또한 인터페이스를 export하여 비슷한 컴포넌트 끼리 같은 인터페이스를 공유하게 함으로써 일관성을 높일 수 있습니다. 위의 예제에서는 링크와 관련된 인터랙션 관심사를 `CoreInteractivePublicProps` 로 분리 한 뒤, `Link` 컴포넌트에서 확장(extneds) 하였습니다.
+   또한 인터페이스를 export하여 비슷한 컴포넌트 끼리 같은 인터페이스를 공유하게 함으로써 일관성을 높일 수 있습니다. 위의 예제에서는 링크와 관련된 인터랙션 관심사를 `CoreInteractivePublicProps` 로 분리 한 뒤, `Link` 컴포넌트에서 확장(extends) 하였습니다.
 
 ### TypeScript & Design System
 
@@ -236,10 +236,10 @@ tags: ['TypeScript', 'Design System', 'React']
 
 ### 비지니스/사용자 측면에서의 장점
 
-> TypeScript를 사용함으로써 약 15%의 버그를 사전에 막을 수 있다. - [To type or not to type: quantifying detectable bugs in JavaScript](https://blog.acolyer.org/2017/09/19/to-type-or-not-to-type-quantifying-detectable-bugs-in-javascript/)
+> _TypeScript를 사용함으로써 약 15%의 버그를 사전에 막을 수 있다. - [To type or not to type: quantifying detectable bugs in JavaScript](https://blog.acolyer.org/2017/09/19/to-type-or-not-to-type-quantifying-detectable-bugs-in-javascript/)_
 
 강력한 타이핑을 통해 발생 가능한 버그를 사전에 줄이고, 프로젝트 관리 및 비즈니스 측면에 집중할 수 있습니다. 물론 버그가 적으니 사용성도 좋아질 것입니다.
 
 ## 의도(intent)는 영향도(impact)를 따른다.
 
-”형태(form)는 기능(function)을 따른다.”는 말이 있습니다. 코드 작성에 적용해 보면 구조의 형태, 더 나아가 사용하기로 선택한 도구와 그것을 사용하는 방법 등은 기능에 의해 결정된다는 것 입니다. 웹 개발과 관련하여 우리가 하는 모든 작업의 목적은 보다 유용하고 안전한 웹 사이트, 앱을 만드는 것입니다. **개발자와 디자이너로써 우리가 만드는 모든 것의 의도는 사용자에게 미치는 영향을 따라야 합니다.** 새로운 라이브러리, 프레임워크를 사용하는 것은 멋진 일이지만, **사용자 그리고 유지보수 할 동료에게 어떠한 긍정적인 영향을 줄 수 있는지 고려하는 것이 중요합니다.** 프레임워크를 만드는 사람이라면, 안전과 유용성을 늘 염두 해야 합니다. 사용자가 구축하고 세상에 내놓는 소프트웨어의 의도는 생각보다 큰 영향을 끼칩니다. 따라서 모든 사람의 안전과 신뢰를 고려하는 도구를 사용하는 것이 중요합니다.
+'형태(form)는 기능(function)을 따른다.'는 말이 있습니다. 코드 작성에 적용해 보면 구조의 형태, 더 나아가 사용하기로 선택한 도구와 그것을 사용하는 방법 등은 기능에 의해 결정된다는 것 입니다. 웹 개발과 관련하여 우리가 하는 모든 작업의 목적은 보다 유용하고 안전한 웹 사이트, 앱을 만드는 것입니다. **개발자와 디자이너로써 우리가 만드는 모든 것의 의도는 사용자에게 미치는 영향을 따라야 합니다.** 새로운 라이브러리, 프레임워크를 사용하는 것은 멋진 일이지만, **사용자 그리고 유지보수 할 동료에게 어떠한 긍정적인 영향을 줄 수 있는지 고려하는 것이 중요합니다.** 프레임워크를 만드는 사람이라면, 안전과 유용성을 늘 염두 해야 합니다. 사용자가 구축하고 세상에 내놓는 소프트웨어의 의도는 생각보다 큰 영향을 끼칩니다. 따라서 모든 사람의 안전과 신뢰를 고려하는 도구를 사용하는 것이 중요합니다.

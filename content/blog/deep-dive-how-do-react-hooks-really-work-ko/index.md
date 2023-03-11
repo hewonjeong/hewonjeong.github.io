@@ -1,13 +1,14 @@
 ---
 title: '[번역] 심층 분석: React Hook은 실제로 어떻게 동작할까?'
 date: 2019-11-26
-description: 'React Hook에 대해 이해하려면 JavsScript 클로저에 대해 잘 알아야합니다. React의 작은 복제본을 만들어보며 클로저와 hook의 동작 방식을 알아봅니다.'
+description: 'React Hook에 대해 이해하려면 JavaScript 클로저에 대해 잘 알아야합니다. React의 작은 복제본을 만들어보며 클로저와 hook의 동작 방식을 알아봅니다.'
 tags: ['React', 'JavaScript', 'Translation']
 ---
+
 [Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/)을 저자, [Swyx](https://twitter.com/swyx)의 허락을 받고 번역한 글입니다. 오타, 오역은 [제보](https://github.com/hewonjeong/hewonjeong.github.io/issues/new)해주시면 수정하도록 하겠습니다.👍🏻
 
 ![클로저 다이어그램](/closure-diagram.jpg)
-*<center>클로저는 함수와 그 함수가 선언됐을 때의 렉시컬 환경(Lexical environment)의 조합이다. - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)</center>*
+_<center>클로저는 함수와 그 함수가 선언됐을 때의 렉시컬 환경(Lexical environment)의 조합이다. - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures)</center>_
 
 ---
 
@@ -325,6 +326,6 @@ App = MyReact.render(Component)
 
 ## 결론
 
-여기까지 이 글에서 학습해볼 내용은 다 다루었습니다.  이제 [useRef를 한 줄로 구현해보거나](https://www.reddit.com/r/reactjs/comments/aufijk/useref_is_basically_usestatecurrent_initialvalue_0/) [render 함수가 JSX를 받아 실제로 DOM에 마운트 하도록 해보거나](https://www.npmjs.com/package/vdom) 우리가 구현한 28줄의 React Hooks 복제본에서는 생략한 무수히 많은 세부 사항을 추가해볼 수도 있습니다. 아무쪼록 컨텍스트에서 클로저를 사용하는 경험과 React Hook이 동작하는 방식을 이해하는 유용한 멘탈 모델을 얻으셨기를 바랍니다.
+여기까지 이 글에서 학습해볼 내용은 다 다루었습니다. 이제 [useRef를 한 줄로 구현해보거나](https://www.reddit.com/r/reactjs/comments/aufijk/useref_is_basically_usestatecurrent_initialvalue_0/) [render 함수가 JSX를 받아 실제로 DOM에 마운트 하도록 해보거나](https://www.npmjs.com/package/vdom) 우리가 구현한 28줄의 React Hooks 복제본에서는 생략한 무수히 많은 세부 사항을 추가해볼 수도 있습니다. 아무쪼록 컨텍스트에서 클로저를 사용하는 경험과 React Hook이 동작하는 방식을 이해하는 유용한 멘탈 모델을 얻으셨기를 바랍니다.
 
 _이 글의 초안을 검토하고 값진 피드백으로 개선해 준 [Dan Abramov](https://twitter.com/danabramov)와 [Divya Sasidharan](https://twitter.com/shortdiv)에게 감사의 말을 전합니다. 오류가 남아있다면 그건 제 탓입니다.._

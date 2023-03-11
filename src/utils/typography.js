@@ -12,10 +12,10 @@ Wordpress2016.overrideThemeStyles = () => {
       color: 'inherit',
       fontStyle: 'inherit',
       borderWidth: '0.25rem',
-      fontSize: 'inherit',
-      paddingLeft: '1rem',
     },
     'li > blockquote': {
+      fontSize: 'inherit',
+      paddingLeft: '1rem',
       margin: '0.5rem 0',
     },
     'p + ul': {

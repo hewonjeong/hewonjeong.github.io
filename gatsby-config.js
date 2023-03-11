@@ -12,7 +12,6 @@ module.exports = {
     title: `Hewon Jeong`,
     author: {
       name: `Hewon Jeong`,
-      summary: `Drink coffee, eat pizza and write code`,
     },
     description: `Personal blog by Hewon Jeong`,
     siteUrl: `https://hewonjeong.github.io`,
@@ -64,8 +63,8 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
