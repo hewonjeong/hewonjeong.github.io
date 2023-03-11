@@ -23,6 +23,8 @@ body {
 }
 
 a.anchor.before {
-  top: -3px;
   padding-right: 6px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
