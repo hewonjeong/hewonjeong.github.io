@@ -1,8 +1,8 @@
 ---
 title: React 렌더 성능 최적화하기 (slow render vs. re-render)
-date: "2019-09-13"
-description: "느린 렌더링을 먼저 수정하고, 여전히 필요하다면 불필요한 re-render를 처리"
-tags: ["React", "Performance"]
+date: '2019-09-13'
+description: '느린 렌더링을 먼저 수정하고, 여전히 필요하다면 불필요한 re-render를 처리'
+tags: ['React', 'Performance']
 ---
 
 [Kent C. Dodds](https://kentcdodds.com)의 [Fix the slow render before you fix the re-render](https://kentcdodds.com/blog/fix-the-slow-render-before-you-fix-the-re-render)를 읽으면서 정리한 내용입니다.
@@ -70,7 +70,7 @@ JavaScript가 render와 reconciliation 과정을 처리하는 게 굉장히 빠�
 
 ### 원문에서 든 예시
 
-![](https://kentcdodds.com/f1c96bd0e36cca155a831d1a5e8913aa/stop-hitting-yourself.gif)
+![](https://user-images.githubusercontent.com/20923534/224480064-108d4242-ae99-48a3-8eae-ae27363b2dfe.gif)
 
 _"만약 눈을 깜빡일 때 마다 스스로 죽빵을 한 대씩 때린다고 해봅시다! (😉🤛 🥴)"_
 
