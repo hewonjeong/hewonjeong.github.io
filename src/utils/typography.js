@@ -12,6 +12,17 @@ Wordpress2016.overrideThemeStyles = () => {
       color: 'inherit',
       fontStyle: 'inherit',
       borderWidth: '0.25rem',
+      fontSize: 'inherit',
+      paddingLeft: '1rem',
+    },
+    'li > blockquote': {
+      margin: '0.5rem 0',
+    },
+    'p + ul': {
+      marginTop: '-1rem',
+    },
+    'p + ol': {
+      marginTop: '-1rem',
     },
     'ul, ol': {
       marginLeft: '1.2rem',
@@ -19,8 +30,20 @@ Wordpress2016.overrideThemeStyles = () => {
     li: {
       marginBottom: 'calc(1rem / 2)',
     },
+    'li > ul': {
+      marginTop: 'calc(1rem / 2)',
+    },
+    'li > p': {
+      marginBottom: 0,
+    },
+    'li *:last-child': {
+      marginBottom: '1rem',
+    },
     'h1, h2, h3': {
       fontFamily: 'inherit',
+    },
+    a: {
+      WebkitBoxDecorationBreak: 'clone',
     },
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
