@@ -18,12 +18,7 @@ Wordpress2016.overrideThemeStyles = () => {
       paddingLeft: '1rem',
       margin: '0.5rem 0',
     },
-    'p + ul': {
-      marginTop: '-1rem',
-    },
-    'p + ol': {
-      marginTop: '-1rem',
-    },
+
     'ul, ol': {
       marginLeft: '1.2rem',
     },
@@ -35,6 +30,13 @@ Wordpress2016.overrideThemeStyles = () => {
     },
     'li > p': {
       marginBottom: 0,
+    },
+
+    'p + ul': {
+      marginTop: '-1rem',
+    },
+    'p + ol': {
+      marginTop: '-1rem',
     },
     'li *:last-child': {
       marginBottom: '1rem',
