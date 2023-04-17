@@ -1,10 +1,9 @@
-import React from 'react'
 import { Link, graphql } from 'gatsby'
+import React from 'react'
 
+import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import { rhythm } from '../utils/typography'
-import Footer from '../components/footer'
 
 class BlogIndex extends React.Component {
   render() {
@@ -19,22 +18,15 @@ class BlogIndex extends React.Component {
           return (
             <article key={node.fields.slug}>
               <header>
-                <h3
-                  style={{
-                    fontWeight: 600,
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
+                <h3>
+                  <Link to={node.fields.slug}>{title}</Link>
                 </h3>
                 <small>
                   {node.frontmatter.date}
                   {node.frontmatter.tags && (
                     <>
                       {' • '}
-                      <ul className="tags">
+                      <ul>
                         {node.frontmatter.tags.map(tag => (
                           <li key={tag}>
                             <Link to="/">{tag}</Link>
