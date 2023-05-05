@@ -5,55 +5,63 @@ import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+export default function Home({ data, location }) {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3>
-                  <Link to={node.fields.slug}>{title}</Link>
-                </h3>
-                <small>
-                  {node.frontmatter.date}
-                  {node.frontmatter.tags && (
-                    <>
-                      {' • '}
-                      <ul>
-                        {node.frontmatter.tags.map(tag => (
-                          <li key={tag}>
-                            <Link to="/">{tag}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
-        <Footer />
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={siteTitle}>
+      {posts.map(({ node }) => {
+        const {
+          fields: { slug },
+          frontmatter: { title, description, date, tags },
+        } = node
+
+        return (
+          <Post
+            key={slug}
+            slug={slug}
+            title={title}
+            description={description}
+            date={date}
+            tags={tags}
+          />
+        )
+      })}
+      <Footer />
+    </Layout>
+  )
 }
 
-export default BlogIndex
+function Post({ title, description, slug, date, tags }) {
+  return (
+    <article>
+      <header>
+        <h3>
+          <Link to={slug}>{title}</Link>
+        </h3>
+        <small>
+          {date}
+          {tags && (
+            <>
+              {' • '}
+              <ul>
+                {tags.map(tag => (
+                  <li key={tag}>
+                    <Link to="/">{tag}</Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </small>
+      </header>
+      <section>
+        <p dangerouslySetInnerHTML={{ __html: description }} />
+      </section>
+    </article>
+  )
+}
 
 export const Head = () => <Seo title="All posts" />
 
@@ -67,7 +75,6 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
