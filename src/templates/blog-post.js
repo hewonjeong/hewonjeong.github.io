@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,42 +14,18 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(2.5),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.dat}
-            </p>
+            <h1>{post.frontmatter.title}</h1>
+            <p>{post.frontmatter.dat}</p>
           </header>
           <section
             className="article"
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
-          <hr style={{ marginTop: rhythm(3), marginBottom: rhythm(0.5) }} />
+          <hr />
         </article>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-              margin: 0,
-            }}
-          >
+          <ul>
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
