@@ -7,7 +7,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div
-      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 font-sans antialiased"
+      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 text-gray-950 antialiased"
       data-is-root-path={isRootPath}
     >
       <header>
