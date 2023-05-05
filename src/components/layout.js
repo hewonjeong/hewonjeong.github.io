@@ -6,14 +6,17 @@ const Layout = ({ location, title, children }) => {
   const isRootPath = location.pathname === rootPath
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">
+    <div
+      className="mx-auto grid max-w-2xl gap-12 px-4 py-8 font-sans antialiased"
+      data-is-root-path={isRootPath}
+    >
+      <header>
         {isRootPath ? (
-          <h1 className="main-heading">
+          <h1 className="font-montserrat text-3xl font-black">
             <Link to="/">{title}</Link>
           </h1>
         ) : (
-          <Link className="header-link-home" to="/">
+          <Link className="font-montserrat text-2xl font-black" to="/">
             {title}
           </Link>
         )}
