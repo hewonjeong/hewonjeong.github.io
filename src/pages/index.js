@@ -1,7 +1,6 @@
 import { Link, graphql } from 'gatsby'
-import React, { Fragment } from 'react'
+import React from 'react'
 
-import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
@@ -11,7 +10,7 @@ export default function Home({ data, location }) {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="space-y-14">
+      <div className="space-y-16">
         {posts.map(({ node }) => {
           const {
             fields: { slug },
@@ -30,7 +29,6 @@ export default function Home({ data, location }) {
           )
         })}
       </div>
-      <Footer />
     </Layout>
   )
 }
@@ -38,29 +36,14 @@ export default function Home({ data, location }) {
 function Post({ title, description, slug, date, tags }) {
   return (
     <article>
-      <Link className="group grid w-full gap-2 transition-all " to={slug}>
-        <header className="space-y-2">
-          <h2 className="text-2xl font-bold">
-            <span className="transition-all group-hover:bg-gray-950 group-hover:text-gray-50">
-              {title}
-            </span>
+      <Link className="group grid w-full gap-3 transition-all" to={slug}>
+        <header>
+          <h2 className="inline text-2xl font-bold transition-all group-hover:bg-gray-950 group-hover:text-gray-50">
+            {title}
           </h2>
-          <small className="inline-flex text-[13px]">
-            <time>{date}</time>
-            {tags && <span className="mx-1"> • </span>}
-            {tags && (
-              <ul className="flex">
-                {tags.map((tag, i) => (
-                  <Fragment key={tag}>
-                    <li>
-                      {i > 0 && ', '}
-                      <Link to="/">{tag}</Link>
-                    </li>
-                  </Fragment>
-                ))}
-              </ul>
-            )}
-          </small>
+          <time className="pl-2 align-bottom text-[13px] text-gray-400">
+            {date}
+          </time>
         </header>
         <section>
           <p dangerouslySetInnerHTML={{ __html: description }} />
