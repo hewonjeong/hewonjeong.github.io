@@ -10,6 +10,14 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    const linkStyle = [
+      'prose-a:transition-all',
+      'prose-a:duration-100',
+      'prose-a:ease-in',
+      'hover:prose-a:bg-gray-950',
+      'hover:prose-a:text-gray-50',
+      'hover:prose-a:no-underline',
+    ].join(' ')
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <article>
@@ -18,7 +26,9 @@ class BlogPostTemplate extends React.Component {
             <p>{post.frontmatter.dat}</p>
           </header>
           <section
-            className="article"
+            className={
+              'prose prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 ' + linkStyle
+            }
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
           <hr />
