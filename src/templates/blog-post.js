@@ -10,48 +10,48 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    const linkStyle = [
+    const proseLinkStyle = [
       'prose-a:transition-all',
       'prose-a:duration-100',
       'prose-a:ease-in',
+      'prose-a:decoration-dashed', // dashed or solid?
+      'prose-a:decoration-1',
+      'prose-a:underline-offset-[3px]',
       'hover:prose-a:bg-gray-950',
       'hover:prose-a:text-gray-50',
       'hover:prose-a:no-underline',
     ].join(' ')
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <article>
-          <header>
-            <h1>{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.dat}</p>
+        <article className="grid gap-8">
+          <header className="grid gap-2">
+            <h1 className="text-[2.5rem] font-black leading-tight">
+              {post.frontmatter.title}
+            </h1>
+            <time className="text-gray-400">{post.frontmatter.date}</time>
           </header>
           <section
             className={
-              'prose prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 ' + linkStyle
+              'prose max-w-[40rem] prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 ' +
+              proseLinkStyle
             }
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
-          <hr />
         </article>
-
-        <nav>
-          <ul>
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+        <hr className="mb-6 mt-16 border-gray-300" />
+        <Nav
+          pages={[
+            previous && {
+              link: previous.fields.slug,
+              title: previous.frontmatter.title,
+            },
+            next && {
+              link: next.fields.slug,
+              title: next.frontmatter.title,
+            },
+          ]}
+        />
       </Layout>
     )
   }
@@ -66,6 +66,32 @@ export const Head = ({ data: { markdownRemark: post } }) => {
       description={post.frontmatter.description}
       tags={post.frontmatter.tags}
     />
+  )
+}
+
+function Nav({ pages }) {
+  const [previous, next] = pages
+  return (
+    <nav className="flex border-solid border-t-gray-400">
+      {previous && (
+        <Link
+          to={previous.link}
+          rel="prev"
+          className={'mr-auto h-fit leading-none ' + linkStyle}
+        >
+          ← {previous.title}
+        </Link>
+      )}
+      {next && (
+        <Link
+          to={next.link}
+          rel="next"
+          className={'ml-auto h-fit leading-none ' + linkStyle}
+        >
+          {next.title} →
+        </Link>
+      )}
+    </nav>
   )
 }
 
@@ -91,3 +117,15 @@ export const pageQuery = graphql`
     }
   }
 `
+
+const linkStyle = [
+  'transition-all',
+  'duration-100',
+  'ease-in',
+  'underline',
+  'decoration-1',
+  'underline-offset-[3px]',
+  'hover:bg-gray-950',
+  'hover:text-gray-50',
+  'hover:no-underline',
+].join(' ')
