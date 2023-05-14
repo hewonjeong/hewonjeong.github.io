@@ -12,9 +12,6 @@ module.exports = {
         sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
         montserrat: 'Montserrat',
       },
-      boxShadow: {
-        highlight: 'inset 0 -.5em 0 0 black',
-      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -25,11 +22,12 @@ module.exports = {
             '--tw-prose-bold': 'inherit',
             '--tw-prose-counters': 'inherit',
             '--tw-prose-bullets': 'inherit',
-            '--tw-prose-hr': 'inherit',
             '--tw-prose-quotes': 'inherit',
             '--tw-prose-quote-borders': 'inherit',
             '--tw-prose-captions': 'inherit',
             '--tw-prose-counters': 'inherit',
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' },
           },
         },
       }),

@@ -10,7 +10,7 @@ export default function Home({ data, location }) {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="space-y-16">
+      <div className="mt-2 space-y-16">
         {posts.map(({ node }) => {
           const {
             fields: { slug },
