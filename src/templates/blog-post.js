@@ -11,14 +11,16 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     const proseLinkStyle = [
-      'prose-a:transition-all',
-      'prose-a:duration-100',
-      'prose-a:ease-in',
+      'hover:prose-a:transition-colors',
+      'hover:prose-a:duration-100',
+      'hover:prose-a:ease-in',
       'prose-a:decoration-dashed', // dashed or solid?
       'prose-a:decoration-1',
       'prose-a:underline-offset-[3px]',
       'hover:prose-a:bg-gray-950',
       'hover:prose-a:text-gray-50',
+      'dark:hover:prose-a:bg-gray-50',
+      'dark:hover:prose-a:text-gray-950',
       'hover:prose-a:no-underline',
     ].join(' ')
 
@@ -33,7 +35,7 @@ class BlogPostTemplate extends React.Component {
           </header>
           <section
             className={
-              'prose max-w-[40rem] prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 ' +
+              'prose max-w-[40rem] prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 prose-img:rounded-lg ' +
               proseLinkStyle
             }
             dangerouslySetInnerHTML={{ __html: post.html }}
@@ -119,13 +121,15 @@ export const pageQuery = graphql`
 `
 
 const linkStyle = [
-  'transition-all',
-  'duration-100',
-  'ease-in',
+  'hover:transition-colors',
+  'hover:duration-100',
+  'hover:ease-in',
   'underline',
   'decoration-1',
   'underline-offset-[3px]',
   'hover:bg-gray-950',
   'hover:text-gray-50',
   'hover:no-underline',
+  'dark:hover:bg-gray-50',
+  'dark:hover:text-gray-950',
 ].join(' ')
