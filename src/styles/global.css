@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply text-gray-950 antialiased transition-colors ease-in dark:bg-gray-950 dark:text-gray-50;
+}

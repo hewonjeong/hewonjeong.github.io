@@ -1,16 +1,28 @@
-import * as React from 'react'
 import { Link } from 'gatsby'
+import React, { useEffect, useState } from 'react'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
+  const [theme, setTheme] = useState()
+
+  useEffect(() => {
+    setTheme(window.__theme)
+    window.__onThemeChange = setTheme
+  }, [setTheme])
+
+  function handleToggleTheme() {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    window.__setPreferredTheme(next)
+  }
+
   return (
     <div
-      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 text-gray-950 antialiased"
+      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 "
       data-is-root-path={isRootPath}
     >
-      <header className="flex h-12 items-end justify-between ">
+      <header className="flex h-12 items-end justify-between">
         {isRootPath ? (
           <h1 className="font-montserrat text-[2rem] font-black">
             <Link to="/">{title}</Link>
@@ -20,7 +32,12 @@ const Layout = ({ location, title, children }) => {
             {title}
           </Link>
         )}
-        <Social />
+        {theme && (
+          <button onClick={handleToggleTheme} className="text-3xl">
+            {theme === 'dark' ? '🌝' : '☀️'}
+          </button>
+        )}
+        {/* <Social /> */}
       </header>
       <main>{children}</main>
     </div>
@@ -43,6 +60,7 @@ function Social() {
         },
       ].map(({ label, icon, link }) => (
         <a
+          key={label}
           target="_blank"
           rel="noopener noreferrer"
           className="dark:text-primary-dark text-gray-400 transition hover:text-gray-950"
