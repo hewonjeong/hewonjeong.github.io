@@ -140,3 +140,7 @@ body {
   @apply hover:transition-colors hover:ease-in hover:duration-100 hover:bg-gray-950 hover:text-gray-50 hover:no-underline;
   @apply dark:hover:bg-gray-50/90 dark:hover:text-neutral-900;
 }
+
+.markdown img {
+  @apply rounded-lg;
+}

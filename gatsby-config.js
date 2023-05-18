@@ -43,6 +43,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
+              wrapperStyle: 'margin: 1.25em auto;',
               linkImagesToOriginal: false,
             },
           },
@@ -90,7 +91,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
+              return allMarkdownRemark.nodes.map((node) => {
                 return Object.assign({}, node.frontmatter, {
                   description: node.frontmatter.description,
                   date: node.frontmatter.date,
