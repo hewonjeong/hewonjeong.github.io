@@ -8,7 +8,7 @@ body {
 
 /* h1 */
 .markdown h1 {
-  @apply text-3xl font-semibold;
+  @apply text-3xl font-bold;
 }
 .markdown *:not(h1, h2, h3) + h1 {
   @apply mt-16;
@@ -16,7 +16,7 @@ body {
 
 /* h2 */
 .markdown h2 {
-  @apply text-2xl font-semibold;
+  @apply text-2xl font-bold;
 }
 .markdown *:not(h1, h2, h3) + h2 {
   @apply mt-14;
@@ -24,7 +24,7 @@ body {
 
 /* h3 */
 .markdown h3 {
-  @apply text-xl font-semibold;
+  @apply text-xl font-bold;
 }
 .markdown *:not(h1, h2, h3) + h3 {
   @apply mt-12;
