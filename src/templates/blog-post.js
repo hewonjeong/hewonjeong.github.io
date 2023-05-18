@@ -34,10 +34,7 @@ class BlogPostTemplate extends React.Component {
             <time className="text-gray-400">{post.frontmatter.date}</time>
           </header>
           <section
-            className={
-              'prose max-w-[40rem] prose-ol:pl-5 prose-ul:pl-5 prose-li:p-0 prose-img:rounded-lg ' +
-              proseLinkStyle
-            }
+            className={'markdown max-w-[40rem]'}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </article>

@@ -5,3 +5,77 @@
 body {
   @apply text-gray-950 antialiased transition-colors duration-200 ease-out dark:bg-gray-950 dark:text-gray-50;
 }
+
+/* h1 */
+.markdown h1 {
+  @apply text-3xl font-semibold;
+}
+.markdown *:not(h1, h2, h3) + h1 {
+  @apply mt-16;
+}
+
+/* h2 */
+.markdown h2 {
+  @apply text-2xl font-semibold;
+}
+.markdown *:not(h1, h2, h3) + h2 {
+  @apply mt-14;
+}
+
+/* h3 */
+.markdown h3 {
+  @apply text-xl font-semibold;
+}
+.markdown *:not(h1, h2, h3) + h3 {
+  @apply mt-12;
+}
+
+.markdown > * + * {
+  @apply mt-6;
+}
+
+.markdown > h1 + * {
+  @apply mt-6;
+}
+.markdown > h2 + * {
+  @apply mt-4;
+}
+.markdown > h3 + * {
+  @apply mt-3;
+}
+
+.markdown h2 + .markdown > p,
+.markdown h3 + .markdown > p {
+  @apply mt-4;
+}
+
+.markdown ol {
+  @apply list-decimal;
+}
+
+.markdown ul {
+  @apply list-disc;
+}
+
+.markdown ol,
+.markdown ul {
+  @apply ps-5;
+  @apply mb-6;
+}
+
+.markdown ol li + li,
+.markdown ul li + li {
+  @apply mt-4;
+}
+
+.markdown p + ol,
+.markdown p + ul {
+  @apply mt-2;
+}
+
+.markdown ol ol,
+.markdown ol ul,
+.markdown ul ol,
+.markdown ul ul {
+  @apply mt-2;
+}

@@ -27,7 +27,6 @@
     "gatsby-transformer-sharp": "^5.5.0",
     "gh-pages": "^2.1.1",
     "postcss": "^8.4.22",
-    "prettier-plugin-tailwindcss": "^0.2.8",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
