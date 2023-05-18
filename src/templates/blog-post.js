@@ -19,8 +19,8 @@ class BlogPostTemplate extends React.Component {
       'prose-a:underline-offset-[3px]',
       'hover:prose-a:bg-gray-950',
       'hover:prose-a:text-gray-50',
-      'dark:hover:prose-a:bg-gray-50',
-      'dark:hover:prose-a:text-gray-950',
+      'dark:hover:prose-a:bg-gray-50/90',
+      'dark:hover:prose-a:text-neutral-900',
       'hover:prose-a:no-underline',
     ].join(' ')
 
@@ -127,6 +127,6 @@ const linkStyle = [
   'hover:bg-gray-950',
   'hover:text-gray-50',
   'hover:no-underline',
-  'dark:hover:bg-gray-50',
-  'dark:hover:text-gray-950',
+  'dark:hover:bg-gray-50/90',
+  'dark:hover:text-neutral-950',
 ].join(' ')

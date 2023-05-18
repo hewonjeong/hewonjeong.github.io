@@ -67,7 +67,7 @@ function Social() {
           key={label}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 transition hover:text-gray-950 dark:hover:text-gray-50"
+          className="text-gray-400 transition hover:text-gray-950 dark:hover:text-gray-50/90"
           href={link}
           aria-label={label}
         >

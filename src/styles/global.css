@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-gray-950 antialiased transition-colors duration-200 ease-out dark:bg-gray-950 dark:text-gray-50;
+  @apply text-gray-950 antialiased transition-colors duration-200 ease-out dark:bg-neutral-900 dark:text-gray-50/90;
 }
 
 /* h1 */
