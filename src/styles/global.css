@@ -79,3 +79,11 @@ body {
 .markdown ul ul {
   @apply mt-2;
 }
+
+.markdown blockquote {
+  @apply border-l-4 border-current my-4 pl-4 leading-relaxed;
+}
+
+.markdown > blockquote {
+  @apply text-lg;
+}
