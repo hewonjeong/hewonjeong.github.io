@@ -60,17 +60,17 @@ body {
 .markdown ol,
 .markdown ul {
   @apply ps-5;
-  @apply mb-6;
+  /* @apply mb-6; */
 }
 
 .markdown ol li + li,
 .markdown ul li + li {
-  @apply mt-4;
+  @apply mt-3;
 }
 
 .markdown p + ol,
 .markdown p + ul {
-  @apply mt-2;
+  @apply mt-3;
 }
 
 .markdown ol ol,
