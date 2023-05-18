@@ -87,3 +87,56 @@ body {
 .markdown > blockquote {
   @apply text-lg;
 }
+
+.markdown thead th {
+  @apply my-4;
+}
+
+.markdown thead {
+  @apply border-b border-gray-300 dark:border-neutral-500;
+}
+
+.markdown thead th {
+  @apply px-2 pb-2 align-bottom;
+}
+
+.markdown thead th:first-child {
+  @apply pl-0;
+}
+
+.markdown thead th:last-child {
+  @apply pr-0;
+}
+
+.markdown tbody tr {
+  @apply border-b border-gray-200 dark:border-neutral-700;
+}
+
+.markdown tbody tr:last-child {
+  @apply border-0;
+}
+
+.markdown tbody td {
+  @apply align-baseline;
+}
+.markdown tbody td,
+.markdown tfoot td {
+  @apply px-2 py-2;
+}
+
+.markdown tbody td:first-child {
+  @apply pl-0;
+}
+.markdown tbody td:last-child {
+  @apply pr-0;
+}
+
+.markdown table {
+  @apply w-full text-sm text-left table-auto;
+}
+
+.markdown a {
+  @apply decoration-dashed decoration-1 underline-offset-[3px] underline;
+  @apply hover:transition-colors hover:ease-in hover:duration-100 hover:bg-gray-950 hover:text-gray-50 hover:no-underline;
+  @apply dark:hover:bg-gray-50/90 dark:hover:text-neutral-900;
+}

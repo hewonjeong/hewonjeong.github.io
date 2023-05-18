@@ -10,20 +10,6 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
-    const proseLinkStyle = [
-      'hover:prose-a:transition-colors',
-      'hover:prose-a:duration-100',
-      'hover:prose-a:ease-in',
-      'prose-a:decoration-dashed', // dashed or solid?
-      'prose-a:decoration-1',
-      'prose-a:underline-offset-[3px]',
-      'hover:prose-a:bg-gray-950',
-      'hover:prose-a:text-gray-50',
-      'dark:hover:prose-a:bg-gray-50/90',
-      'dark:hover:prose-a:text-neutral-900',
-      'hover:prose-a:no-underline',
-    ].join(' ')
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <article className="grid gap-8">
