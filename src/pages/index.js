@@ -38,7 +38,7 @@ function Post({ title, description, slug, date, tags }) {
     <article>
       <Link className="group grid w-full gap-3" to={slug}>
         <header>
-          <h2 className="inline text-2xl font-bold group-hover:bg-gray-950 group-hover:text-gray-50 group-hover:transition-colors group-hover:dark:bg-gray-50 group-hover:dark:text-gray-950">
+          <h2 className="inline text-2xl font-bold group-hover:bg-gray-950 group-hover:text-gray-50 group-hover:transition-colors group-hover:dark:bg-gray-50 group-hover:dark:text-neutral-950">
             {title}
           </h2>
           <time className="pl-2 align-bottom text-[13px] text-gray-400">
