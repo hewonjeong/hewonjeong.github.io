@@ -20,7 +20,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div
-      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 "
+      className="mx-auto grid max-w-2xl gap-14 px-5 py-10 auto-cols-[100%]"
       data-is-root-path={isRootPath}
     >
       <header className="flex h-12 items-end justify-between">

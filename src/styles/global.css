@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-gray-950 antialiased transition-colors duration-200 ease-out dark:bg-neutral-900 dark:text-neutral-50/90;
+  @apply text-gray-950 leading-relaxed antialiased transition-colors duration-200 ease-out dark:bg-neutral-900 dark:text-neutral-50/90;
 }
 
 /* h1 */
@@ -66,6 +66,10 @@ body {
 .markdown ol li + li,
 .markdown ul li + li {
   @apply mt-3;
+}
+
+.markdown li p + p {
+  @apply mt-1;
 }
 
 .markdown p + ol,

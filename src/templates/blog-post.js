@@ -12,9 +12,9 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <article className="grid gap-8">
+        <article className="grid gap-8 auto-cols-[100%]">
           <header className="grid gap-2">
-            <h1 className="text-[2.5rem] font-black leading-tight">
+            <h1 className="text-[2.5rem] font-black leading-tight break-keep">
               {post.frontmatter.title}
             </h1>
             <time className="text-gray-400">{post.frontmatter.date}</time>
