@@ -1,15 +1,43 @@
-/* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+javascript+diff+jsx+tsx+typescript&plugins=line-highlight */
-/**
- * prism.js Dark theme for JavaScript, CSS and HTML
- * Based on the slides of the talk “/Reg(exp){2}lained/”
- * @author Lea Verou
- */
+body {
+  --smoothing: auto;
+  --default-color: inherit;
+  --background: rgba(100, 100, 0, 0.03);
+  --inline-code-background: hsla(44, 6%, 50%, 0.15);
+  --punctuation: #999;
+  --comment: slategray;
+  --script: inherit;
+  --deleted: #905;
+  --property: #905;
+  --string: #690;
+  --operator: #9a6e3a;
+  --operator-background: hsla(0, 0%, 100%, 0.5);
+  --attribute-value: #07a;
+  --variable: #e90;
+  --function: #dd4a68;
+}
+
+html.dark body {
+  --smoothing: antialiased;
+  --default-color: rgba(255, 255, 255, 0.85);
+  --background: rgba(255, 255, 255, 0.03);
+  --inline-code-background: rgba(155, 151, 140, 0.15);
+  --punctuation: rgba(255, 255, 255, 0.81);
+  --comment: hsl(30, 20%, 50%);
+  --script: rgba(255, 255, 255, 0.81);
+  --deleted: red;
+  --property: hsl(350, 45%, 70%);
+  --string: hsl(75, 70%, 60%);
+  --operator: hsl(40, 90%, 60%);
+  --operator-background: auto;
+  --attribute-value: hsl(350, 45%, 70%);
+  --variable: hsl(40, 90%, 60%);
+  --function: inherit;
+}
 
 code[class*='language-'],
 pre[class*='language-'] {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--default-color);
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
   font-feature-settings: normal;
   text-align: left;
@@ -28,7 +56,11 @@ pre[class*='language-'] {
   -ms-hyphens: none;
   hyphens: none;
 
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: var(--smoothing);
+
+  transition-property: color, background-colorl;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 @media print {
@@ -40,12 +72,14 @@ pre[class*='language-'] {
 
 pre[class*='language-'],
 :not(pre) > code[class*='language-'] {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--background);
+
+  /* background: rgba(255, 255, 255, 0.03); */
 }
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 1em;
+  padding: 1.5em;
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.5em;
@@ -53,34 +87,37 @@ pre[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  background: rgba(155, 151, 140, 0.15);
+  background: var(--inline-code-background);
+  border-radius: 0.22em;
+  color: inherit;
+  font-size: 85%;
+  line-height: normal;
+  padding: 0.15em 0.4em;
   white-space: normal;
-
-  /* padding: 0.1em 0.3em; */
-  border-radius: 3px;
-  background: rgba(155, 151, 140, 0.15);
-  white-space: normal;
-  /* border: 1px solid rgba(255, 255, 255, 0.05); */
+  transition: none;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: hsl(30, 20%, 50%);
+  color: var(--comment);
 }
 
-.token.punctuation,
+.token.punctuation {
+  color: var(--punctuation);
+}
+
 .token.script {
-  /* opacity: 0.7; */
-  color: rgba(255, 255, 255, 0.81);
+  color: var(--script);
 }
 
-.token.punctuation,
 .token.namespace {
   opacity: 0.7;
+}
+
+.token.deleted {
+  color: var(--deleted);
 }
 
 .token.property,
@@ -89,7 +126,7 @@ pre[class*='language-'] {
 .token.number,
 .token.constant,
 .token.symbol {
-  color: hsl(350, 45%, 70%);
+  color: var(--property);
 }
 
 .token.selector,
@@ -98,22 +135,31 @@ pre[class*='language-'] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: hsl(75, 70%, 60%);
+  color: var(--string);
 }
 
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
-.style .token.string,
+.style .token.string {
+  color: var(--operator);
+  /* background: var(--operator-background); */
+}
+
 .token.variable {
-  color: hsl(40, 90%, 60%);
+  color: var(--variable);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: hsl(350, 45%, 70%);
+  color: var(--attribute-value);
+}
+
+.token.function,
+.token.class-name {
+  color: var(--function);
 }
 
 .token.regex,
@@ -131,10 +177,6 @@ pre[class*='language-'] {
 
 .token.entity {
   cursor: help;
-}
-
-.token.deleted {
-  color: red;
 }
 
 pre[data-line] {
