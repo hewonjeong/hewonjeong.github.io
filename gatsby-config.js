@@ -127,9 +127,6 @@ module.exports = {
         name: `Hewon Jeong`,
         short_name: `Hewon Jeong`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        theme_color: `#ffffff`,
         theme_color_in_head: false,
         display: `minimal-ui`,
         icon: `src/images/icon.png`,
