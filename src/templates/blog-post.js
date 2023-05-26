@@ -14,10 +14,12 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <article className="grid gap-8 auto-cols-[100%]">
           <header className="grid gap-2">
-            <h1 className="text-[2.5rem] font-black leading-tight break-keep">
+            <h1 className="text-[2.5rem] font-black leading-tight">
               {post.frontmatter.title}
             </h1>
-            <time className="text-gray-400">{post.frontmatter.date}</time>
+            <time dataTime={post.frontmatter.date} className="text-gray-400">
+              {post.frontmatter.date}
+            </time>
           </header>
           <section
             className={'markdown max-w-[40rem]'}
@@ -93,6 +95,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        dateTime: date(formatString: "YYYY-MM-DD")
         description
         tags
       }

@@ -14,7 +14,7 @@ export default function Home({ data, location }) {
         {posts.map(({ node }) => {
           const {
             fields: { slug },
-            frontmatter: { title, description, date, tags },
+            frontmatter: { title, description, date, dateTime, tags },
           } = node
 
           return (
@@ -24,6 +24,7 @@ export default function Home({ data, location }) {
               title={title}
               description={description}
               date={date}
+              dateTime={dateTime}
               tags={tags}
             />
           )
@@ -33,7 +34,7 @@ export default function Home({ data, location }) {
   )
 }
 
-function Post({ title, description, slug, date, tags }) {
+function Post({ title, description, slug, date, dateTime, tags }) {
   return (
     <article>
       <Link className="group grid w-full gap-3" to={slug}>
@@ -41,7 +42,10 @@ function Post({ title, description, slug, date, tags }) {
           <h2 className="inline text-2xl font-bold group-hover:bg-gray-950 group-hover:text-gray-50 group-hover:transition-colors group-hover:dark:bg-gray-50 group-hover:dark:text-neutral-950">
             {title}
           </h2>
-          <time className="pl-2 align-bottom text-[13px] text-gray-400">
+          <time
+            dateTime={dateTime}
+            className="pl-2 align-bottom text-[13px] text-gray-400"
+          >
             {date}
           </time>
         </header>
@@ -70,6 +74,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM D, YYYY")
+            dateTime: date(formatString: "YYYY-MM-DD")
             title
             description
             tags
