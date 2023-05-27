@@ -18,15 +18,20 @@ function setColorsByTheme() {
   function setTheme(newTheme) {
     window.__theme = newTheme
     preferredTheme = newTheme
+    const meta = document.querySelector('meta[name="theme-color"]')
+
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark')
+      meta.setAttribute('content', '#171717')
     } else {
       document.documentElement.classList.remove('dark')
+      meta.setAttribute('content', 'white')
     }
+
     window.__onThemeChange(newTheme)
   }
 
-  var preferredTheme
+  let preferredTheme
 
   try {
     preferredTheme = localStorage.getItem('theme')
@@ -37,10 +42,16 @@ function setColorsByTheme() {
     localStorage.setItem('theme', newTheme)
   }
 
-  var query = window.matchMedia('(prefers-color-scheme: dark)')
+  const query = window.matchMedia('(prefers-color-scheme: dark)')
   query.addListener(function (e) {
     window.__setPreferredTheme(e.matches ? 'dark' : 'light')
   })
+  const initialTheme = preferredTheme || (query.matches ? 'dark' : 'light')
 
-  setTheme(preferredTheme || (query.matches ? 'dark' : 'light'))
+  const meta = document.createElement('meta')
+  meta.name = 'theme-color'
+  meta.content = initialTheme === 'dark' ? '#171717' : 'white'
+  document.getElementsByTagName('head')[0].appendChild(meta)
+
+  setTheme(initialTheme)
 }
