@@ -17,7 +17,10 @@ class BlogPostTemplate extends React.Component {
             <h1 className="text-[2.5rem] font-black leading-tight">
               {post.frontmatter.title}
             </h1>
-            <time dataTime={post.frontmatter.date} className="text-gray-400">
+            <time
+              dateTime={post.frontmatter.dateTime}
+              className="text-gray-400"
+            >
               {post.frontmatter.date}
             </time>
           </header>
