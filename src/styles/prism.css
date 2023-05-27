@@ -241,4 +241,7 @@ pre[data-line] {
   padding-right: 1em;
   padding-left: 1.25em;
   border-left: 0.25em solid #ffa7c4;
+
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
 }
