@@ -12,10 +12,11 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
+        <meta name="theme-color" content="white" />
+        <ThemeScript />
         {headComponents}
       </head>
       <body>
-        <ThemeScript />
         {preBodyComponents}
         <div
           key="body"
@@ -39,32 +40,21 @@ function ThemeScript() {
 function setColorsByTheme() {
   window.__onThemeChange = function () {}
 
-  function appendMeta(content) {
-    const head = document.head
-    const meta = document.createElement('meta')
-    meta.setAttribute('name', 'theme-color')
-    meta.setAttribute('content', content)
-    head.appendChild(meta)
-  }
-
-  function removeMeta() {
-    const head = document.head
-    const meta = document.querySelector('meta[name="theme-color"]')
-    if (!head || !meta) return
-    head.removeChild(meta)
+  function updateMeta(content) {
+    document
+      .querySelector('meta[name=theme-color]')
+      .setAttribute('content', content)
   }
 
   function setTheme(newTheme) {
     window.__theme = newTheme
     preferredTheme = newTheme
-    removeMeta()
+    updateMeta(newTheme === 'dark' ? '#171717' : '#ffffff')
 
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark')
-      appendMeta('#171717')
     } else {
       document.documentElement.classList.remove('dark')
-      appendMeta('#ffffff')
     }
 
     window.__onThemeChange(newTheme)

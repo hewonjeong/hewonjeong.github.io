@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
---theme: white;
-
-.dark {
-  --theme: #171717;
-}
 body {
   @apply text-gray-950 leading-relaxed antialiased transition-colors duration-200 ease-out dark:bg-neutral-900 dark:text-neutral-50/90;
 }
