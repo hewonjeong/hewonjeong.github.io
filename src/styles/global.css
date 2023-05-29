@@ -145,7 +145,7 @@ h3 {
   @apply w-full text-sm text-left table-auto;
 }
 
-.markdown a {
+.markdown a:not(.anchor) {
   @apply decoration-dashed decoration-1 underline-offset-[3px] underline;
   @apply hover:transition-colors hover:ease-in hover:duration-100 hover:bg-gray-950 hover:text-gray-50 hover:no-underline;
   @apply dark:hover:bg-gray-50/90 dark:hover:text-neutral-900;
@@ -153,4 +153,17 @@ h3 {
 
 .markdown img {
   @apply rounded-lg;
+}
+
+.markdown .anchor {
+  position: absolute;
+  transform: translate(-100%);
+  padding-right: 4px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.markdown .anchor svg {
+  fill: currentColor;
 }
