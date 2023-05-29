@@ -20,7 +20,6 @@ export default function SEO({ description, title, tags = [], children }) {
 
   return (
     <>
-      <html lang="ko" />
       <title>{[title, site.siteMetadata.title].join(' | ')}</title>
       <meta name="description" content={metaDescription} />
       {tags.length && <meta name="keywords" content={tags.join(',')} />}
