@@ -37,7 +37,7 @@ export default function Home({ data, location }) {
 function Post({ title, description, slug, date, dateTime, tags }) {
   return (
     <article>
-      <Link className="group grid w-full gap-3" to={slug}>
+      <Link className="group grid w-full gap-2" to={slug}>
         <header>
           <h2 className="inline text-2xl font-bold group-hover:bg-gray-950 group-hover:text-gray-50 group-hover:transition-colors group-hover:dark:bg-gray-50 group-hover:dark:text-neutral-950">
             {title}
