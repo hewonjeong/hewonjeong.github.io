@@ -1,4 +1,5 @@
-body {
+code[class*='language-'],
+pre[class*='language-'] {
   --smoothing: auto;
   --default-color: inherit;
   --background: rgba(100, 100, 0, 0.03);
@@ -16,7 +17,8 @@ body {
   --function: #dd4a68;
 }
 
-html.dark body {
+html.dark code[class*='language-'],
+html.dark pre[class*='language-'] {
   --smoothing: antialiased;
   --default-color: rgba(255, 255, 255, 0.85);
   --background: rgba(255, 255, 255, 0.03);
