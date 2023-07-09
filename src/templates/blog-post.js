@@ -29,7 +29,7 @@ class BlogPostTemplate extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </article>
-        <hr className="mb-6 mt-16 border-gray-300" />
+        <hr className="mb-8 mt-16 border-gray-200 dark:border-neutral-700" />
         <Nav
           pages={[
             previous && {
@@ -61,24 +61,39 @@ export const Head = ({ data: { markdownRemark: post } }) => {
 
 function Nav({ pages }) {
   const [previous, next] = pages
+
   return (
-    <nav className="flex border-solid border-t-gray-400">
+    <nav className="grid md:grid-cols-2 gap-4">
       {previous && (
         <Link
           to={previous.link}
           rel="prev"
-          className={'mr-auto h-fit leading-none ' + linkStyle}
+          className="border-solid border-gray-200 dark:border-neutral-700 grid gap-2 border rounded-md py-4 px-4 group"
         >
-          ← {previous.title}
+          <small className="text-sm text-gray-400">Previous</small>
+          <span
+            className={
+              'truncate max-w-full w-fit group-hover:underline leading-tight'
+            }
+          >
+            {previous.title}
+          </span>
         </Link>
       )}
       {next && (
         <Link
           to={next.link}
           rel="next"
-          className={'ml-auto h-fit leading-none ' + linkStyle}
+          className="border-solid border-gray-200 dark:border-neutral-700 grid gap-2 border rounded-md py-4 px-4 group"
         >
-          {next.title} →
+          <small className="text-sm text-gray-400 justify-self-end">Next</small>
+          <span
+            className={
+              'truncate max-w-full w-fit justify-self-end group-hover:underline leading-tight'
+            }
+          >
+            {next.title}
+          </span>
         </Link>
       )}
     </nav>
@@ -108,17 +123,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-const linkStyle = [
-  'hover:transition-colors',
-  'hover:duration-100',
-  'hover:ease-in',
-  'underline',
-  'decoration-1',
-  'underline-offset-[3px]',
-  'hover:bg-gray-950',
-  'hover:text-gray-50',
-  'hover:no-underline',
-  'dark:hover:bg-gray-50/90',
-  'dark:hover:text-neutral-950',
-].join(' ')
