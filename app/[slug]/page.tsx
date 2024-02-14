@@ -5,7 +5,7 @@ import Link from '../Link'
 import { sans } from '../fonts'
 import remarkSmartpants from 'remark-smartypants'
 import rehypePrettyCode from 'rehype-pretty-code'
-import { remarkMdxEvalCodeBlock } from './mdx.jsx'
+import { remarkMdxEvalCodeBlock } from './mdx'
 import overnight from 'overnight/themes/Overnight-Slumber.json'
 import './markdown.css'
 
@@ -18,23 +18,9 @@ export default async function PostPage({
 }) {
   const filename = './public/' + params.slug + '/index.md'
   const file = await readFile(filename, 'utf8')
-  let postComponents = {}
-  try {
-    postComponents = await import(
-      '../../public/' + params.slug + '/components.js'
-    )
-  } catch (e: any) {
-    if (!e || e.code !== 'MODULE_NOT_FOUND') {
-      throw e
-    }
-  }
+  const postComponents = await importPostComponents(params.slug)
   const { content, data } = matter(file)
-  const discussUrl = `https://x.com/search?q=${encodeURIComponent(
-    `https://overreacted.io/${params.slug}/`
-  )}`
-  const editUrl = `https://github.com/gaearon/overreacted.io/edit/main/public/${encodeURIComponent(
-    params.slug
-  )}/index.md`
+
   return (
     <article>
       <h1
@@ -56,19 +42,19 @@ export default async function PostPage({
         <MDXRemote
           source={content}
           components={{
-            a: Link,
+            a: Link as any,
             ...postComponents,
           }}
           options={{
             mdxOptions: {
               useDynamicImport: true,
               remarkPlugins: [
-                remarkSmartpants,
+                remarkSmartpants as any,
                 [remarkMdxEvalCodeBlock, filename],
               ],
               rehypePlugins: [
                 [
-                  rehypePrettyCode,
+                  rehypePrettyCode as any,
                   {
                     theme: overnight,
                   },
@@ -77,15 +63,21 @@ export default async function PostPage({
             },
           }}
         />
-        <hr />
-        <p>
-          <Link href={discussUrl}>Discuss on 𝕏</Link>
-          &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-          <Link href={editUrl}>Edit on GitHub</Link>
-        </p>
       </div>
     </article>
   )
+}
+
+async function importPostComponents(slug: string) {
+  try {
+    return import('../../public/' + slug + '/components.js')
+  } catch (e: unknown) {
+    if (e instanceof Error && 'code' in e && e.code === 'MODULE_NOT_FOUND') {
+      return {}
+    }
+
+    throw e
+  }
 }
 
 export async function generateStaticParams() {
@@ -93,6 +85,7 @@ export async function generateStaticParams() {
   const dirs = entries
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
+
   return dirs.map((dir) => ({ slug: dir }))
 }
 
@@ -101,8 +94,9 @@ export async function generateMetadata({
 }: {
   params: { slug: string }
 }) {
-  const file = await readFile('./public/' + params.slug + '/index.md', 'utf8')
-  let { data } = matter(file)
+  const file = await readFile(`./public/${params.slug}/index.md`, 'utf8')
+  const { data } = matter(file)
+
   return {
     title: data.title + ' — overreacted',
     description: data.spoiler,
