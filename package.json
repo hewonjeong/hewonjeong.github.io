@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "colorjs.io": "^0.4.5",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "next": "14.1.0",

@@ -14,7 +14,7 @@ export default function HomeLink() {
       className={[
         brand.className,
         'inline-block text-2xl font-black',
-        isActive && 'hover:scale-[1.02]',
+        !isActive && 'hover:scale-[1.02]',
       ].join(' ')}
     >
       <span
