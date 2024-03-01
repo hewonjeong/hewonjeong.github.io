@@ -30,9 +30,8 @@ export async function getPosts() {
     return { slug, ...data } as Post
   })
 
-  posts.sort((a, b) => {
-    return Date.parse(a.date) < Date.parse(b.date) ? 1 : -1
-  })
+  posts.sort((a, b) => (Date.parse(a.date) < Date.parse(b.date) ? 1 : -1))
+
   return posts
 }
 
@@ -44,7 +43,7 @@ export default async function Home() {
         <Link
           key={post.slug}
           className="block py-4 hover:scale-[1.005]"
-          href={'/' + post.slug + '/'}
+          href={`/${post.slug}/`}
         >
           <article>
             <PostTitle post={post} />
@@ -80,7 +79,7 @@ function PostTitle({ post }: { post: Post }) {
         {
           '--lightLink': lightRange(staleness).toString(),
           '--darkLink': darkRange(staleness).toString(),
-        } as any
+        } as CSSProperties
       }
     >
       {post.title}

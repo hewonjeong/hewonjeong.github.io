@@ -1,41 +1,38 @@
 import { Feed } from 'feed'
 import { Post } from './types'
 
+const SITE_URL = 'https://overreacted.io/'
+
 export function generateFeed(
   posts: Post[],
-  metadata: {
-    title: string
-    description: string
-  }
+  metadata: { title: string; description: string }
 ) {
-  const site_url = 'https://overreacted.io/'
-
   const feed = new Feed({
     author: {
       name: 'Dan Abramov',
       email: 'dan.abramov@gmail.com',
-      link: site_url,
+      link: SITE_URL,
     },
     description: metadata.description,
-    favicon: `${site_url}/icon.png`,
-    feedLinks: { atom: `${site_url}atom.xml`, rss: `${site_url}rss.xml` },
+    favicon: `${SITE_URL}/icon.png`,
+    feedLinks: { atom: `${SITE_URL}atom.xml`, rss: `${SITE_URL}rss.xml` },
     generator: 'Feed for Node.js',
-    id: site_url,
+    id: SITE_URL,
     image: 'https://github.com/gaearon.png',
-    link: site_url,
+    link: SITE_URL,
     title: metadata.title,
     copyright: '',
   })
 
-  for (const post of posts) {
+  posts.forEach((post) =>
     feed.addItem({
       date: new Date(post.date),
       description: post.spoiler,
-      id: `${site_url}${post.slug}/`,
-      link: `${site_url}${post.slug}/`,
+      id: `${SITE_URL}${post.slug}/`,
+      link: `${SITE_URL}${post.slug}/`,
       title: post.title,
     })
-  }
+  )
 
   return feed
 }

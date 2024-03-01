@@ -38,9 +38,7 @@ export default function Link({
       onClick={(e) => {
         if (!isModifiedEvent(e)) {
           e.preventDefault()
-          trackNavigation(() => {
-            router.push(e.currentTarget.href)
-          })
+          trackNavigation(() => router.push(e.currentTarget.href))
         }
       }}
       className={[className, `scale-100 active:scale-100`].join(' ')}

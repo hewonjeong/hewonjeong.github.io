@@ -52,14 +52,7 @@ export default async function PostPage({
                 remarkSmartpants as any,
                 [remarkMdxEvalCodeBlock, filename],
               ],
-              rehypePlugins: [
-                [
-                  rehypePrettyCode as any,
-                  {
-                    theme: overnight,
-                  },
-                ],
-              ],
+              rehypePlugins: [[rehypePrettyCode as any, { theme: overnight }]],
             },
           }}
         />
@@ -68,13 +61,16 @@ export default async function PostPage({
   )
 }
 
+function isNotFoundError(e: unknown) {
+  return e instanceof Error && 'code' in e && e.code === 'MODULE_NOT_FOUND'
+}
+
 async function importPostComponents(slug: string) {
   try {
-    return import('../../public/' + slug + '/components.js')
+    const components = await import(`../../public/${slug}/components.js`)
+    return components
   } catch (e: unknown) {
-    if (e instanceof Error && 'code' in e && e.code === 'MODULE_NOT_FOUND') {
-      return {}
-    }
+    if (isNotFoundError(e)) return {}
 
     throw e
   }
