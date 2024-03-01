@@ -1,6 +1,6 @@
 'use client'
 
-import { sans } from './fonts'
+import { brand } from './fonts'
 import { usePathname } from 'next/navigation'
 import Link from './Link'
 
@@ -12,7 +12,7 @@ export default function HomeLink() {
     <Link
       href="/"
       className={[
-        sans.className,
+        brand.className,
         'inline-block text-2xl font-black',
         isActive && 'hover:scale-[1.02]',
       ].join(' ')}

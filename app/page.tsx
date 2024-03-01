@@ -2,7 +2,7 @@ import { readdir, readFile } from 'fs/promises'
 import matter from 'gray-matter'
 import Link from './Link'
 import Color from 'colorjs.io'
-import { sans } from './fonts'
+import { brand } from './fonts'
 import { Post } from './types'
 import { CSSProperties } from 'react'
 
@@ -72,7 +72,7 @@ function PostTitle({ post }: { post: Post }) {
   return (
     <h2
       className={[
-        sans.className,
+        brand.className,
         'text-[28px] font-black',
         'text-[--lightLink] dark:text-[--darkLink]',
       ].join(' ')}

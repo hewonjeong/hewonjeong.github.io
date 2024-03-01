@@ -2,7 +2,7 @@ import { readdir, readFile } from 'fs/promises'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from '../Link'
-import { sans } from '../fonts'
+import { brand } from '../fonts'
 import remarkSmartpants from 'remark-smartypants'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { remarkMdxEvalCodeBlock } from './mdx'
@@ -25,7 +25,7 @@ export default async function PostPage({
     <article>
       <h1
         className={[
-          sans.className,
+          brand.className,
           'text-[40px] font-black leading-[44px] text-[--title]',
         ].join(' ')}
       >
@@ -56,6 +56,7 @@ export default async function PostPage({
             },
           }}
         />
+        <hr />
       </div>
     </article>
   )

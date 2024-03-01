@@ -1,13 +1,13 @@
-import { Montserrat, Merriweather } from 'next/font/google'
+import { Montserrat, Noto_Sans } from 'next/font/google'
 
-export const sans = Montserrat({
+export const brand = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '700', '900'],
   style: ['normal'],
 })
 
-export const serif = Merriweather({
+export const sans = Noto_Sans({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '700'],
