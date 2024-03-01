@@ -4,14 +4,15 @@ import Link from './Link'
 import Color from 'colorjs.io'
 import { sans } from './fonts'
 import { Post } from './types'
+import { CSSProperties } from 'react'
 
 export const metadata = {
-  title: 'overreacted — A blog by Dan Abramov',
-  description: 'A personal blog by Dan Abramov',
+  title: 'Hewon Jeong',
+  description: 'A personal blog by Hewon Jeong',
   alternates: {
     types: {
-      'application/atom+xml': 'https://overreacted.io/atom.xml',
-      'application/rss+xml': 'https://overreacted.io/rss.xml',
+      'application/atom+xml': 'https://hewonjeong.github.io/atom.xml',
+      'application/rss+xml': 'https://hewonjeong.github.io/rss.xml',
     },
   },
 }

@@ -14,7 +14,7 @@ export default function HomeLink() {
       className={[
         sans.className,
         'inline-block text-2xl font-black',
-        isActive ? '' : 'hover:scale-[1.02]',
+        isActive && 'hover:scale-[1.02]',
       ].join(' ')}
     >
       <span
@@ -31,7 +31,7 @@ export default function HomeLink() {
           transition: '--myColor1 0.2s ease-out, --myColor2 0.2s ease-in-out',
         }}
       >
-        overreacted
+        Hewon Jeong
       </span>
     </Link>
   )
