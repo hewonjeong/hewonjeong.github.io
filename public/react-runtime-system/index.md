@@ -1,10 +1,9 @@
 ---
-title: "React In Depth: 프로그래밍 모델과 원리"
-date: "2019-09-28"
-description: "React는 어떻게 동작할까? 왜 그렇게 동작할까? 얼핏 들었던 내부 개념들에 대한 정리"
-tags: ["React"]
+title: 'React In Depth: 프로그래밍 모델과 원리'
+date: '2019-09-28'
+spoiler: 'React는 어떻게 동작할까? 왜 그렇게 동작할까? 얼핏 들었던 내부 개념들에 대한 정리'
+tags: ['React']
 ---
-
 
 단방향 데이터 흐름, 상위 컴포넌트의 상태 변경에 따른 리렌더링, immutable한 state 관리 등 React를 사용하여 개발 하다보면 다른 UI 프로그래밍 모델에서는 낯선 개념들을 마주할 때가 있습니다. [Dan Abramov](https://mobile.twitter.com/dan_abramov)가 이러한 개념들에 대해 명쾌하게 설명한 글 [React as a UI Runtime](https://overreacted.io/react-as-a-ui-runtime/) 을 읽으며 간략하게 정리한 내용입니다. 원글의 양이 길어 hooks 등의 개념은 따로 정리할 예정입니다.
 
@@ -38,6 +37,7 @@ React는 외부 상호작용, 네트워크 응답, 타이머 등 **외부 이벤
 호스트 환경에서 가장 작은 구성 요소는 호스트 인스턴스이다. (e.g. DOM node) React에서는 제일 작은 빌딩 요소는 *React Element*이다.
 
 React element는 호스트 인스턴스를 표현 수 있는 plain JavaScript object. (가볍다.)
+
 ```jsx
 // JSX는 아래 오브젝트를 만들기 위한 편의구문
 // <dialog>
@@ -57,6 +57,7 @@ React element는 호스트 인스턴스를 표현 수 있는 plain JavaScript ob
   }
 }
 ```
+
 (이 설명에서 크게 중요하지 않은 [몇 가지 속성들](https://overreacted.io/why-do-react-elements-have-typeof-property/)은 생략했다.)
 
 React 엘리먼트는 영속성을 가지지 않는다. 매번 버리고 새로 만들어진다.
@@ -74,7 +75,7 @@ ReactDOM.render(
   // { type: 'button', props: { className: 'blue' } }
   <button className="blue" />,
   document.getElementById('container')
-);
+)
 ```
 
 `ReactDOM.render(reactElement, domContainer)`의 의미는 “React, `domContainer` 호스트 트리를 나의 `reactElement`와 같게 만들어줘”와 같다.
@@ -95,6 +96,7 @@ React의 목표는 주어진 React 엘리먼트 트리와 호스트 트리를 �
 자식 트리에 같은 휴리스틱 알고리즘을 반복하여 적용한다.
 
 ## Conditions
+
 ```jsx
 function Form({ showMessage }) {
   return (
@@ -104,6 +106,7 @@ function Form({ showMessage }) {
     </dialog>);
 }
 ```
+
 `showMessage`의 값과 관계없이 `<input>`은 항상 두 번째 자식이고 렌더링 전후 위치가 변하지 않는다.
 
 `dialog → dialog`: 호스트 인스턴스를 재사용? 🙆🏻‍♂️ **(타입 일치)**
@@ -114,11 +117,12 @@ function Form({ showMessage }) {
 ⇒ React는 `createElement('p')` ⇒ `insertBefore(...)` 대략 이런 코드를 수행하고 `input` 의 상태는 손실되지 않을 것
 
 ## List
+
 ```jsx
 function ShoppingList({ list }) {
   return (
     <form>
-      {list.map(item => (
+      {list.map((item) => (
         <p>
           You bought {item.name}
           <br />
@@ -132,7 +136,7 @@ function ShoppingList({ list }) {
 
 `ShoppingList`의 list가 재정렬된다면 React는 순서가 변경된 것을 알지 못한다. Reconciliation 규칙에 따라 변경된 텍스트 영역만 업데이트 할 것이다. 하지만 이 경우, **input은 변경되지 않으므로 재정렬 후 참조가 꼬이는 버그가 발생**한다.
 
-**이것이 매번 React가 엘리먼트 배열에 key prop을 요구하는 이유**이다. `key`는  아이템이 어느 위치에 있었는지 알려준다. React는 같은 `key`를 가진 이전 호스트 인스턴스를 재사용하고 자식의 순서를 재정렬한다.
+**이것이 매번 React가 엘리먼트 배열에 key prop을 요구하는 이유**이다. `key`는 아이템이 어느 위치에 있었는지 알려준다. React는 같은 `key`를 가진 이전 호스트 인스턴스를 재사용하고 자식의 순서를 재정렬한다.
 
 `key`는 항상 같은 부모 React 엘리먼트 안에서만 유효하다.
 
@@ -143,7 +147,7 @@ React 컴포넌트는 전달받은 props에 대해 순수하다고 가정한다.
 ```jsx
 function Button(props) {
   // 🔴 Doesn't work
-  props.isActive = true;
+  props.isActive = true
 }
 ```
 
@@ -152,7 +156,7 @@ Local mutation은 전혀 상관 없다. 비슷한 맥락으로 전혀 "pure"하�
 ```jsx
 function ExpenseForm() {
   // Fine if it doesn't affect other components:
-  SuperCalculator.initializeIfNotReady();
+  SuperCalculator.initializeIfNotReady()
 
   // Continue rendering...
 }
@@ -160,7 +164,7 @@ function ExpenseForm() {
 
 다른 컴포넌트의 렌더링에 영향을 주지 않으면 컴포넌트를 여러 번 호출하는 것도 상관없다. React는 엄격한 함수형 패러다임처럼 100% 순수성을 가지지 못해도 괜찮다. [멱등성](https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation)은 React에서 순수성보다 훨씬 중요하다. (= 컴포넌트를 여러번 호출해도 같은 결과를 만들도록 할 것)
 
-정리하면, React 컴포넌트에서 사용자가 볼 수 있는 부수 효과는 허용되지 않는다.  컴포넌트 함수를 호출하더라도 직접적으로 화면에 변경을 일으키면 안된다.
+정리하면, React 컴포넌트에서 사용자가 볼 수 있는 부수 효과는 허용되지 않는다. 컴포넌트 함수를 호출하더라도 직접적으로 화면에 변경을 일으키면 안된다.
 
 ## Recursion (재귀)
 
@@ -170,14 +174,15 @@ function ExpenseForm() {
 
 ```jsx
 // { type: Form, props: { showMessage: true } }
-let reactElement = <Form showMessage={true} />;
-ReactDOM.render(reactElement, domContainer);
+let reactElement = <Form showMessage={true} />
+ReactDOM.render(reactElement, domContainer)
 ```
+
 React 내부 어딘가에서 컴포넌트가 호출 될 것이다. JSX가 변환될 때 `<form>`과 `<Form>`은 각각 다른 타입으로 볼 것이다.
 
 ```jsx
-console.log(<form />.type); // 'form' string
-console.log(<Form />.type); // Form function
+console.log((<form />).type) // 'form' string
+console.log((<Form />).type) // Form function
 ```
 
 전역 등록 메커니즘은 없다. `<Form />`이라고 치면 문자열 그대로 Form을 참조한다.
@@ -216,7 +221,7 @@ React 컴포넌트는 비교적 순수하지만 화면에 나타나지 않는다
       children: { type: Comments }
     }
 }
-```   
+```
 
 컴포넌트로 작성하면 React가 호출 시점을 결정할 수 있게 해 줍니다. (불필요한 렌더링을 피할 수 있게 하고 코드의 취약성을 줄일 수 있다.)
 
@@ -224,7 +229,7 @@ React 컴포넌트는 비교적 순수하지만 화면에 나타나지 않는다
 
 reconciliation 과정은 논-블로킹 작업으로 나누더라도, 실제 호스트 트리에서의 작업은 여전히 단일 동기 흐름안에서 수행되어야한다. 이렇게 하면 사용자가 덜 만들어진 UI를 볼 수 없고, 브라우저가 중간 상태에 대해 불필요한 레이아웃 및 스타일 재계산을 수행하지 않도록 할 수 있다.
 
-위 이유로 React는 모든 작업을 “render phase”와 “commit phase”로 나눈다. 
+위 이유로 React는 모든 작업을 “render phase”와 “commit phase”로 나눈다.
 
 - Render phase: React가 컴포넌트를 호출, reconciliation을 수행. 중단해도 안전하며 [앞으로는 비동기적일 것](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)
 - Commit phase: 동기적으로 React가 호스트 트리를 변경하는 단계
@@ -240,8 +245,9 @@ function Row({ item }) {
   // ...
 }
 
-export default React.memo(Row);
+export default React.memo(Row)
 ```
+
 React는 기본적으로 컴포넌트를 메모하지 않는다. 대부분의 컴포넌트들은 항상 다른 props를 받기 때문에 메모이제이션 비용이 발생할 수 있다.
 
 ## Raw Models
@@ -252,30 +258,32 @@ React는 기본적으로 컴포넌트를 메모하지 않는다. 대부분의 �
 
 주식 시세 표시 애플리케이션처럼 세밀한 구독이 도움이 되는 경우도 있다. (모든 것이 한번에 지속적으로 갱신되는 경우) React 최상위에 세밀한 구독 시스템을 만들 수도 있지만 React가 좋은 사용 사례가 되지 않을 수도 있다.
 
-세밀한 구독과 반응형 시스템으로도 풀 수 없는 일반적인 성능 이슈들이 존재한다.  React는 [컨커런트 렌더링](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)을 통해 이 문제들을 해결하고자 한다.
+세밀한 구독과 반응형 시스템으로도 풀 수 없는 일반적인 성능 이슈들이 존재한다. React는 [컨커런트 렌더링](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)을 통해 이 문제들을 해결하고자 한다.
 
 ## Batching
+
 ```jsx
 function Parent() {
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(0)
   return (
     <div onClick={() => setCount(count + 1)}>
       Parent clicked {count} times
       <Child />
     </div>
-  );
+  )
 }
 
 function Child() {
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState(0)
   return (
     <button onClick={() => setCount(count + 1)}>
       Child clicked {count} times
     </button>
-  );
+  )
 }
 ```
-위 경우, React가 즉시 `setState` 호출에 대한 응답으로 컴포넌트를 다시 렌더링한다면 자식을 두번 렌더링 해야 한다. 
+
+위 경우, React가 즉시 `setState` 호출에 대한 응답으로 컴포넌트를 다시 렌더링한다면 자식을 두번 렌더링 해야 한다.
 
 ```jsx
 *** Entering React's browser click event handler ***
@@ -301,6 +309,6 @@ React는 내부적으로 현재 렌더되어 있는 컴포넌트를 기억하기
 
 이 트리들은 상호작용하기 위해서 계속 살아 있어야 한다. 즉 Article 컴포넌트의 렌더가 끝나도 React 호출 트리는 파괴되지 않는다. local state와 호스트 인스턴스의 참조를 [어딘가에](https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7) 유지해야 한다.
 
-호출 트리 프레임은 재조정 규칙에 따라 지역 상태, 호스트 인스턴스와 함께 파괴됩니다. React 소스를 읽어봤다면 이러한 프레임을 [파이버](https://en.wikipedia.org/wiki/Fiber_(computer_science))라고 부르는 것을 볼 수 있다.
+호출 트리 프레임은 재조정 규칙에 따라 지역 상태, 호스트 인스턴스와 함께 파괴됩니다. React 소스를 읽어봤다면 이러한 프레임을 [파이버](<https://en.wikipedia.org/wiki/Fiber_(computer_science)>)라고 부르는 것을 볼 수 있다.
 
 파이버는 지역 상태가 실제로 있는 곳이다. 지역 상태가 업데이트될 때 React는 해당 파이버의 자식들을 재조정하고 해당 컴포넌트들을 호출한다.

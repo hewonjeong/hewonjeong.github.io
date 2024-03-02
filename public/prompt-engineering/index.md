@@ -1,7 +1,7 @@
 ---
 title: 개발자를 위한 ChatGPT 프롬프트 엔지니어링
 date: '2023-06-29'
-description: 'ChatGPT Prompt Engineering for Developers 강의 노트'
+spoiler: 'ChatGPT Prompt Engineering for Developers 강의 노트'
 tags: []
 ---
 

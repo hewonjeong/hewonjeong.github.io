@@ -1,7 +1,7 @@
 ---
 title: '[번역] 심층 분석: React Hook은 실제로 어떻게 동작할까?'
 date: 2019-11-26
-description: 'React Hook에 대해 이해하려면 JavaScript 클로저에 대해 잘 알아야합니다. React의 작은 복제본을 만들어보며 클로저와 hook의 동작 방식을 알아봅니다.'
+spoiler: 'React Hook에 대해 이해하려면 JavaScript 클로저에 대해 잘 알아야합니다. React의 작은 복제본을 만들어보며 클로저와 hook의 동작 방식을 알아봅니다.'
 tags: ['React', 'JavaScript', 'Translation']
 ---
 
@@ -109,7 +109,7 @@ console.log(foo) // 0 출력 - 헐!!
 
 ```js
 // 예제 2
-const MyReact = (function() {
+const MyReact = (function () {
   let _val // 모듈 스코프 안에 state를 잡아놓습니다.
   return {
     render(Component) {
@@ -157,7 +157,7 @@ App = MyReact.render(Counter) // render: { count: 1 }
 
 ```js
 // Example 3
-const MyReact = (function() {
+const MyReact = (function () {
   let _val, _deps // 스코프 안에서 상태와 의존성을 잡아 놓습니다.
   return {
     render(Component) {
@@ -167,7 +167,9 @@ const MyReact = (function() {
     },
     useEffect(callback, depArray) {
       const hasNoDeps = !depArray
-      const hasChangedDeps = _deps ? !depArray.every((el, i) => el === _deps[i]) : true
+      const hasChangedDeps = _deps
+        ? !depArray.every((el, i) => el === _deps[i])
+        : true
       if (hasNoDeps || hasChangedDeps) {
         callback()
         _deps = depArray
@@ -221,7 +223,7 @@ App = MyReact.render(Counter)
 
 ```js
 // 예제 4
-const MyReact = (function() {
+const MyReact = (function () {
   let hooks = [],
     currentHook = 0 // Hook 배열과 반복자(iterator)!
   return {
@@ -234,7 +236,9 @@ const MyReact = (function() {
     useEffect(callback, depArray) {
       const hasNoDeps = !depArray
       const deps = hooks[currentHook] // type: array | undefined
-      const hasChangedDeps = deps ? !depArray.every((el, i) => el === deps[i]) : true
+      const hasChangedDeps = deps
+        ? !depArray.every((el, i) => el === deps[i])
+        : true
       if (hasNoDeps || hasChangedDeps) {
         callback()
         hooks[currentHook] = depArray

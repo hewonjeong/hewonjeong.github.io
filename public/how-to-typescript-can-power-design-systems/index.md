@@ -1,7 +1,7 @@
 ---
 title: 'TypeScript로 디자인 시스템에 날개 달기'
 date: '2019-11-20'
-description: '디자인 시스템에 TypeScript를 적용하여 인터페이스 지향 개발, 정적 코드 분석을 통한 문서 자동화 등의 이점을 얻어보자'
+spoiler: '디자인 시스템에 TypeScript를 적용하여 인터페이스 지향 개발, 정적 코드 분석을 통한 문서 자동화 등의 이점을 얻어보자'
 tags: ['TypeScript', 'Design System', 'React']
 ---
 
@@ -79,7 +79,7 @@ tags: ['TypeScript', 'Design System', 'React']
      transform?: TextTransform
    }
 
-   export const Pill: React.SFC<PillProps> = props => {
+   export const Pill: React.SFC<PillProps> = (props) => {
      const classes: ClassValue = {
        'tw pill': true,
      }

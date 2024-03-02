@@ -1,7 +1,7 @@
 ---
 title: 직교성 (Orthogonality)
 date: '2021-12-20'
-description: '하나가 바뀌어도 나머지에 어떤 영향도 주지 않으면 서로 직교한다고 할 수 있다.'
+spoiler: '하나가 바뀌어도 나머지에 어떤 영향도 주지 않으면 서로 직교한다고 할 수 있다.'
 tags: ['Programming']
 ---
 

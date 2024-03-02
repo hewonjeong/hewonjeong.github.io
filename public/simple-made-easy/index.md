@@ -1,7 +1,7 @@
 ---
 title: 쉽게 풀이한 단순함 (Simple Made Easy)
 date: '2023-03-01'
-description: '좋은 시스템은 단순하다. ‘단순하다’라는 것은 무엇일까?'
+spoiler: '좋은 시스템은 단순하다. ‘단순하다’라는 것은 무엇일까?'
 tags: ['Programming', 'Design']
 ---
 

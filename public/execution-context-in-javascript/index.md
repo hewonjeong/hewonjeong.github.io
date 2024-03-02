@@ -1,8 +1,8 @@
 ---
 title: JavaScript의 실행 컨텍스트 (Execution Context)
-date: "2019-10-06"
-description: "실행 컨텍스트(Execution Context)란 실행할 코드에 제공할 환경 정보들을 모아놓은 객체이다."
-tags: ["JavaScript"]
+date: '2019-10-06'
+spoiler: '실행 컨텍스트(Execution Context)란 실행할 코드에 제공할 환경 정보들을 모아놓은 객체이다.'
+tags: ['JavaScript']
 ---
 
 [《코어 자바스크립트》](https://book.naver.com/bookdb/book_detail.nhn?bid=15433261)의 '실행 컨텍스트' 파트를 읽고 정리한 내용입니다.
@@ -14,13 +14,12 @@ tags: ["JavaScript"]
 ## Properties
 
 1. `VariableEnvironment`
-    - `environmentRecord` + `outerEnvironmentReference` (둘 다 snapshot)
-    - ⇒ 담기는 내용은 `LexicalEnvironment` 와 같지만 최초 실행 시의 스냅샷을 유지한다는 점이 다르다.
+   - `environmentRecord` + `outerEnvironmentReference` (둘 다 snapshot)
+   - ⇒ 담기는 내용은 `LexicalEnvironment` 와 같지만 최초 실행 시의 스냅샷을 유지한다는 점이 다르다.
 2. `LexicalEnvironment`
-    - `environmentRecord` + `outerEnvironmentReference`
-    
+   - `environmentRecord` + `outerEnvironmentReference`
 3. `ThisBinding`
-    - this로 지정된 객체가 저장된다. 활성화 당시에 this가 지정되지 않은 경우 전역 객체가 저장된다.
+   - this로 지정된 객체가 저장된다. 활성화 당시에 this가 지정되지 않은 경우 전역 객체가 저장된다.
 
 ## `environmentRecord`
 
@@ -31,10 +30,14 @@ tags: ["JavaScript"]
 ### Function Declaration와 Function Expression
 
 ```js
-function a() { /* ... */ } // function declaration (함수 선언문). 함수명 a가 곧 변수명
+function a() {
+  /* ... */
+} // function declaration (함수 선언문). 함수명 a가 곧 변수명
 a() // 실행 OK
 
-var b = function() { /* ... */ }; // function expression (함수 표현식). 변수명 b가 곧 변수명
+var b = function () {
+  /* ... */
+} // function expression (함수 표현식). 변수명 b가 곧 변수명
 b() // 실행 OK
 ```
 

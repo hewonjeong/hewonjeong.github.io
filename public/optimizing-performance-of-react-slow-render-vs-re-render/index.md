@@ -1,7 +1,7 @@
 ---
 title: React 렌더 성능 최적화하기 (slow render vs. re-render)
 date: '2019-09-13'
-description: '느린 렌더링을 먼저 수정하고, 여전히 필요하다면 불필요한 re-render를 처리'
+spoiler: '느린 렌더링을 먼저 수정하고, 여전히 필요하다면 불필요한 re-render를 처리'
 tags: ['React', 'Performance']
 ---
 
@@ -44,7 +44,7 @@ function Foo() {
 
 function Counter() {
   const [count, setCount] = React.useState(0)
-  const increment = () => setCount(c => c + 1)
+  const increment = () => setCount((c) => c + 1)
   return (
     <>
       <Foo />
