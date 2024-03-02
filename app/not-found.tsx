@@ -5,12 +5,7 @@ import './[slug]/markdown.css'
 export default function NotFound() {
   return (
     <article className="markdown">
-      <h1
-        className={[
-          brand.className,
-          'text-[40px] font-black leading-[44px] text-[--title]',
-        ].join(' ')}
-      >
+      <h1 className="text-[40px] font-bold leading-[44px] text-[--title]']">
         Not found
       </h1>
       <div className="markdown mt-10">

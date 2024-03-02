@@ -37,13 +37,7 @@ export default async function Home() {
 
 function PostTitle({ post }: { post: Post }) {
   return (
-    <h2
-      className={[
-        brand.className,
-        'text-[28px] font-black',
-        'text-[--lightLink] dark:text-[--darkLink]',
-      ].join(' ')}
-    >
+    <h2 className="text-[28px] font-bold text-[--lightLink] dark:text-[--darkLink]">
       {post.title}
     </h2>
   )

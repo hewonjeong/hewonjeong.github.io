@@ -24,12 +24,7 @@ export default async function PostPage({
 
   return (
     <article>
-      <h1
-        className={[
-          brand.className,
-          'text-[40px] font-black leading-[44px] text-[--title]',
-        ].join(' ')}
-      >
+      <h1 className="text-[40px] font-bold leading-[44px] text-[--title]">
         {data.title}
       </h1>
       <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
