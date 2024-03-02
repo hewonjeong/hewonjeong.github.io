@@ -9,6 +9,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import { remarkMdxEvalCodeBlock } from './mdx'
 import overnight from 'overnight/themes/Overnight-Slumber.json'
 import './markdown.css'
+import Time from '../Time'
 
 overnight.colors['editor.background'] = 'var(--code-bg)'
 
@@ -27,13 +28,7 @@ export default async function PostPage({
       <h1 className="text-[40px] font-bold leading-[44px] text-[--title]">
         {data.title}
       </h1>
-      <p className="mt-2 text-[13px] text-gray-700 dark:text-gray-300">
-        {new Date(data.date).toLocaleDateString('en', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })}
-      </p>
+      <Time value={data.date} className="mt-2" />
       <div className="markdown mt-10">
         <MDXRemote
           source={content}

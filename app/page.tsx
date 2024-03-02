@@ -1,6 +1,7 @@
 import { brand } from './fonts'
 import Link from './Link'
 import { getPosts } from './posts'
+import Time from './Time'
 import { Post } from './types'
 
 export const metadata = {
@@ -26,7 +27,7 @@ export default async function Home() {
         >
           <article>
             <PostTitle post={post} />
-            <PostMeta post={post} />
+            <Time value={post.date} className="mt-1" />
             <PostSubtitle post={post} />
           </article>
         </Link>
@@ -40,18 +41,6 @@ function PostTitle({ post }: { post: Post }) {
     <h2 className="text-[28px] font-bold text-[--lightLink] dark:text-[--darkLink]">
       {post.title}
     </h2>
-  )
-}
-
-function PostMeta({ post }: { post: Post }) {
-  return (
-    <p className="text-[13px] text-gray-700 dark:text-gray-300">
-      {new Date(post.date).toLocaleDateString('en', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })}
-    </p>
   )
 }
 
