@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from '../Link'
 import { brand } from '../fonts'
 import remarkSmartpants from 'remark-smartypants'
+import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
 import { remarkMdxEvalCodeBlock } from './mdx'
 import overnight from 'overnight/themes/Overnight-Slumber.json'
@@ -49,10 +50,19 @@ export default async function PostPage({
             mdxOptions: {
               useDynamicImport: true,
               remarkPlugins: [
+                remarkGfm,
                 remarkSmartpants as any,
                 [remarkMdxEvalCodeBlock, filename],
               ],
-              rehypePlugins: [[rehypePrettyCode as any, { theme: overnight }]],
+              rehypePlugins: [
+                [
+                  rehypePrettyCode as any,
+                  {
+                    defaultLang: 'plaintext',
+                    theme: overnight,
+                  },
+                ],
+              ],
             },
           }}
         />
@@ -95,7 +105,7 @@ export async function generateMetadata({
   const { data } = matter(file)
 
   return {
-    title: data.title + ' — overreacted',
+    title: `${data.title} — Hewon Jeong`,
     description: data.spoiler,
   }
 }

@@ -4,7 +4,7 @@ import { getPosts } from './posts'
 import { Post } from './types'
 
 export const metadata = {
-  title: 'Hewon Jeong',
+  title: 'All Posts — Hewon Jeong',
   description: 'A personal blog by Hewon Jeong',
   alternates: {
     types: {
