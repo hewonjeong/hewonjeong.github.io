@@ -1,7 +1,6 @@
 import { readdir, readFile } from 'fs/promises'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import overnight from 'overnight/themes/Overnight-Slumber.json'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import remarkSmartpants from 'remark-smartypants'
@@ -9,8 +8,8 @@ import Link from '../Link'
 import Time from '../Time'
 import './markdown.css'
 import { remarkMdxEvalCodeBlock } from './mdx'
-import lightTheme from './themes/light.json'
 import darkTheme from './themes/dark.json'
+import lightTheme from './themes/light.json'
 
 export default async function PostPage({
   params,

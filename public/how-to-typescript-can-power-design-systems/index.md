@@ -61,7 +61,7 @@ tags: ['TypeScript', 'Design System', 'React']
 
    아래는 TypeScript로 작성한 코드와 문서의 예시입니다. 타입과 인터페이스를 기반으로 `props` 관련 문서화를 손쉽게 할 수 있습니다.
 
-   ```typescript
+   ```tsx
    export enum PillType {
      Notification = 'tw-pill--notification',
      Brand = 'tw-pill--brand',
@@ -149,7 +149,7 @@ tags: ['TypeScript', 'Design System', 'React']
 
 3. **export 가능한 인터페이스**
 
-   ```typescript{1,9}
+   ```tsx {1,9}
    export interface CoreInteractivePublicProps extends CoreMouseHandlers {
      ariaLabel?: string
      autoFocus?: boolean
