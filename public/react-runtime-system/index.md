@@ -195,7 +195,7 @@ React 엘리먼트 타입이 함수라면 React는 컴포넌트를 호출해서 
 
 - **컴포넌트는 함수 이상의 역할을 한다.** local state와 같은 기능들로 컴포넌트 함수를 강력하게 만들어준다. 컴포넌트를 직접 호출한다면 이 기능들을 직접 구축해야 할 것이다.
 
-- **컴포넌트 타입은 reconciliation에 관여한다.** React가 컴포넌트를 호출함으로써 트리의 개념 구조를 알려줄 수 있다. 예를 들어, 트리의 input의 위치가 같더라도 <PasswordForm>과 <MessengerChat> 사이에서 재조정이 일어나고, 입력 상태가 유지되지 않도록 할 수 있다.
+- **컴포넌트 타입은 reconciliation에 관여한다.** React가 컴포넌트를 호출함으로써 트리의 개념 구조를 알려줄 수 있다. 예를 들어, 트리의 input의 위치가 같더라도 \<PasswordForm /\>과 \<MessengerChat /\> 사이에서 재조정이 일어나고, 입력 상태가 유지되지 않도록 할 수 있다.
 
 - **React가 reconciliation을 지연시킬 수 있다.** 가령 브라우저가 컴포넌트 호출 사이에서 특정 작업을 할 수 있도록 하여 큰 컴포넌트 트리를 다시 렌더링 하더라도 [메인 스레드를 멈추지 않게 할 수 있다.](https://reactjs.org/blog/2018/03/01/sneak-peek-beyond-react-16.html)
 

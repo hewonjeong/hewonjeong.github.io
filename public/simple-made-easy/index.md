@@ -98,7 +98,7 @@ tags: ['Programming', 'Design']
 
 ## Complect (엮여있다)
 
-![](/complect.png)
+![](complect.png)
 
 - 끼워넣거나 휘감거나 땋는다는 뜻 → 소프트웨어를 나쁘게 만드는 것! 안좋은 것!
 - fig.1 과 fig.6 는 똑같은 줄이지만 fig.6가 훨씬 이해하기 어렵다.
@@ -110,7 +110,7 @@ tags: ['Programming', 'Design']
 
 ## Modularity and Simplicity
 
-![](/modularity-and-simplicity.png)
+![](modularity-and-simplicity.png)
 
 - 왼쪽 그림에서 파란 블럭과 노란 블럭은 서로를 호출하지 않더라도 완벽히 엮여있다.
 - 요소를 격리할 방법: 추상화(오른쪽 그림의 흰색 점선으로 표시된 블럭 윗부분) → 파란 블럭이 노란 블럭을 전혀 모르고, 노란 블럭도 파란 블럭을 전혀 모른다. 단순함이 유지된다.
