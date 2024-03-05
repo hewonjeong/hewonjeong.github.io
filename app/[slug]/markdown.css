@@ -19,49 +19,49 @@
   @apply pt-8 opacity-60 dark:opacity-10;
 }
 
-h1,
 h2,
-h3 {
+h3,
+h4 {
   @apply break-keep;
-}
-
-/* h1 */
-.markdown h1 {
-  @apply text-3xl font-bold;
-}
-.markdown *:not(h1, h2, h3) + h1 {
-  @apply mt-16;
 }
 
 /* h2 */
 .markdown h2 {
-  @apply text-2xl font-bold;
+  @apply text-3xl font-bold;
 }
-.markdown *:not(h1, h2, h3) + h2 {
-  @apply mt-14;
+.markdown *:not(h2, h3, h4) + h2 {
+  @apply mt-16;
 }
 
 /* h3 */
 .markdown h3 {
+  @apply text-2xl font-bold;
+}
+.markdown *:not(h2, h3, h4) + h3 {
+  @apply mt-14;
+}
+
+/* h4 */
+.markdown h4 {
   @apply text-xl font-bold;
 }
 
-.markdown *:not(h1, h2, h3) + h3 {
+.markdown *:not(h2, h3, h4) + h4 {
   @apply mt-12;
 }
 
-.markdown > h1 + * {
-  @apply mt-6;
-}
 .markdown > h2 + * {
   @apply mt-4;
 }
 .markdown > h3 + * {
   @apply mt-3;
 }
+.markdown > h4 + * {
+  @apply mt-3;
+}
 
-.markdown h2 + .markdown > p,
-.markdown h3 + .markdown > p {
+.markdown h3 + .markdown > p,
+.markdown h4 + .markdown > p {
   @apply mt-4;
 }
 

@@ -332,4 +332,4 @@ App = MyReact.render(Component)
 
 여기까지 이 글에서 학습해볼 내용은 다 다루었습니다. 이제 [useRef를 한 줄로 구현해보거나](https://www.reddit.com/r/reactjs/comments/aufijk/useref_is_basically_usestatecurrent_initialvalue_0/) [render 함수가 JSX를 받아 실제로 DOM에 마운트 하도록 해보거나](https://www.npmjs.com/package/vdom) 우리가 구현한 28줄의 React Hooks 복제본에서는 생략한 무수히 많은 세부 사항을 추가해볼 수도 있습니다. 아무쪼록 컨텍스트에서 클로저를 사용하는 경험과 React Hook이 동작하는 방식을 이해하는 유용한 멘탈 모델을 얻으셨기를 바랍니다.
 
-_이 글의 초안을 검토하고 값진 피드백으로 개선해 준 [Dan Abramov](https://twitter.com/danabramov)와 [Divya Sasidharan](https://twitter.com/shortdiv)에게 감사의 말을 전합니다. 오류가 남아있다면 그건 제 탓입니다.._
+_이 글의 초안을 검토하고 값진 피드백으로 개선해 준 [Dan Abramov](https://twitter.com/dan_abramov)와 [Divya Sasidharan](https://twitter.com/shortdiv)에게 감사의 말을 전합니다. 오류가 남아있다면 그건 제 탓입니다.._
