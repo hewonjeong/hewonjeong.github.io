@@ -9,8 +9,8 @@ import Link from '../Link'
 import Time from '../Time'
 import './markdown.css'
 import { remarkMdxEvalCodeBlock } from './mdx'
-
-overnight.colors['editor.background'] = 'var(--code-bg)'
+import lightTheme from './themes/light.json'
+import darkTheme from './themes/dark.json'
 
 export default async function PostPage({
   params,
@@ -48,7 +48,10 @@ export default async function PostPage({
                   rehypePrettyCode as any,
                   {
                     defaultLang: 'plaintext',
-                    theme: overnight,
+                    theme: {
+                      light: lightTheme,
+                      dark: darkTheme,
+                    },
                   },
                 ],
               ],

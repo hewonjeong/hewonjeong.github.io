@@ -8,8 +8,6 @@
   --bg: white;
   --code-bg: #232936;
   --link: #222;
-  --inlineCode-bg: rgba(255, 229, 100, 0.2);
-  --inlineCode-text: #1a1a1a;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -18,8 +16,6 @@
     --bg: #222;
     --code-bg: #191d27;
     --link: rgba(255, 255, 255, 0.88);
-    --inlineCode-bg: rgba(115, 124, 153, 0.2);
-    --inlineCode-text: #e6e6e6;
   }
 }
 

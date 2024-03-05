@@ -99,11 +99,37 @@ h4 {
   @apply mt-2;
 }
 
+pre[data-theme*=' '] {
+  background-color: var(--shiki-light-bg);
+}
+
+:not(pre) > code[data-theme*=' '] {
+  background-color: var(--shiki-light-bg);
+}
+
+code[data-theme*=' '] span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  pre[data-theme*=' '] {
+    background-color: var(--shiki-dark-bg);
+  }
+
+  :not(pre) > code[data-theme*=' '] {
+    background-color: var(--shiki-dark-bg);
+  }
+
+  code[data-theme*=' '] span {
+    color: var(--shiki-dark);
+  }
+}
+
 .markdown :not(pre) > code {
-  border-radius: 10px;
-  background: var(--inlineCode-bg);
-  color: var(--inlineCode-text);
-  padding: 0.15em 0.2em 0.05em;
+  border-radius: 0.22em;
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  line-height: normal;
   white-space: normal;
 }
 
