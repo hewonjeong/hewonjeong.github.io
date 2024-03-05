@@ -6,16 +6,11 @@ import { Post } from './types'
 export const metadata = {
   title: 'All Posts — Hewon Jeong',
   description: 'A personal blog by Hewon Jeong',
-  alternates: {
-    types: {
-      'application/atom+xml': 'https://hewonjeong.github.io/atom.xml',
-      'application/rss+xml': 'https://hewonjeong.github.io/rss.xml',
-    },
-  },
 }
 
 export default async function Home() {
   const posts = await getPosts()
+
   return (
     <div className="relative -top-[10px] flex flex-col gap-8">
       {posts.map((post) => (
