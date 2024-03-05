@@ -1,4 +1,3 @@
-import { brand } from './fonts'
 import Link from './Link'
 import { getPosts } from './posts'
 import Time from './Time'
