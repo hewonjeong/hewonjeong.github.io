@@ -12,7 +12,7 @@
 }
 
 .markdown a {
-  @apply border-b-[1px] border-[--link] text-[--link];
+  @apply hover:text-gray-400 hover:border-gray-400 border-b-[1px] border-[--link] text-[--link];
 }
 
 .markdown hr {
@@ -104,7 +104,7 @@ pre[data-theme*=' '] {
 }
 
 :not(pre) > code[data-theme*=' '] {
-  background-color: var(--shiki-light-bg);
+  background-color: #ebebeb;
 }
 
 code[data-theme*=' '] span {
@@ -117,7 +117,7 @@ code[data-theme*=' '] span {
   }
 
   :not(pre) > code[data-theme*=' '] {
-    background-color: var(--shiki-dark-bg);
+    background-color: #101010;
   }
 
   code[data-theme*=' '] span {
