@@ -18,3 +18,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
+          clean: true
+          clean_exclude: .nojekyll
