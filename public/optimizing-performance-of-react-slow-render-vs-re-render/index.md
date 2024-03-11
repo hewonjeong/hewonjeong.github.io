@@ -70,7 +70,7 @@ JavaScript가 render와 reconciliation 과정을 처리하는 게 굉장히 빠�
 
 ### 원문에서 든 예시
 
-![](https://user-images.githubusercontent.com/20923534/224480064-108d4242-ae99-48a3-8eae-ae27363b2dfe.gif)
+![](stop-hitting-yourself.webp)
 
 _"만약 눈을 깜빡일 때 마다 스스로 죽빵을 한 대씩 때린다고 해봅시다! (😉🤛 🥴)"_
 

@@ -1,6 +1,8 @@
 import { readdir, readFile } from 'fs/promises'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import Image from 'next/image'
+import { getPlaiceholder } from 'plaiceholder'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 import remarkSmartpants from 'remark-smartypants'
@@ -16,7 +18,7 @@ export default async function PostPage({
 }: {
   params: { slug: string }
 }) {
-  const filename = './public/' + params.slug + '/index.md'
+  const filename = `./public/${params.slug}/index.md`
   const file = await readFile(filename, 'utf8')
   const postComponents = await importPostComponents(params.slug)
   const { content, data } = matter(file)
@@ -32,6 +34,7 @@ export default async function PostPage({
           source={content}
           components={{
             a: Link as any,
+            img: (props) => <StaticImage {...props} slug={params.slug} />,
             ...postComponents,
           }}
           options={{
@@ -99,4 +102,33 @@ export async function generateMetadata({
     title: `${data.title} — Hewon Jeong`,
     description: data.spoiler,
   }
+}
+
+function isRemote(src: string) {
+  return src.startsWith('http://') || src.startsWith('https://')
+}
+
+type StaticImageProps = {
+  slug: string
+} & Omit<React.ComponentProps<'img'>, 'width' | 'height' | 'ref'>
+
+async function StaticImage({ slug, src, ...props }: StaticImageProps) {
+  if (!src) throw new Error('src is required')
+  if (isRemote(src)) throw new Error('Remote images are not supported')
+
+  const file = await readFile(`./public/${slug}/${src}`)
+  const placeholder = await getPlaiceholder(file, { size: 32 })
+
+  return (
+    <Image
+      src={`./${slug}/${src}`}
+      alt=""
+      placeholder="blur"
+      blurDataURL={placeholder.base64}
+      unoptimized
+      {...props}
+      width={placeholder.metadata.width}
+      height={placeholder.metadata.height}
+    />
+  )
 }
