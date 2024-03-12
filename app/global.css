@@ -6,6 +6,7 @@
   --text: #222;
   --bg: white;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: rgba(255, 255, 255, 0.88);
@@ -26,3 +27,5 @@
     transform: none !important;
   }
 }
+
+@import 'markdown.css';
