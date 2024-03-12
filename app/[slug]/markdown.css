@@ -83,6 +83,13 @@ h4 {
   @apply mt-3;
 }
 
+.markdown ol ul,
+.markdown ol ol,
+.markdown ul ul,
+.markdown ul ol {
+  @apply ps-2;
+}
+
 .markdown li p + p {
   @apply mt-1;
 }
