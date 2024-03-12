@@ -25,7 +25,7 @@ export default async function PostPage({
 
   return (
     <article>
-      <h1 className="text-[2.5rem] leading-tight font-bold text-[--title] break-keep">
+      <h1 className="text-[2.5rem] leading-tight font-bold break-keep">
         {data.title}
       </h1>
       <Time value={data.date} className="mt-2" />

@@ -4,18 +4,12 @@
 
 :root {
   --text: #222;
-  --title: #222;
   --bg: white;
-  --code-bg: #232936;
-  --link: #222;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --text: rgba(255, 255, 255, 0.88);
-    --title: white;
     --bg: #222;
-    --code-bg: #191d27;
-    --link: rgba(255, 255, 255, 0.88);
   }
 }
 

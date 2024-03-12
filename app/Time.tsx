@@ -8,7 +8,7 @@ export default function Time({ value, className }: Props) {
   return (
     <time
       dateTime={formatDateTime(date)}
-      className={`text-[13px] text-gray-400 dark:text-gray-500 font-mono flex ${className}`}
+      className={`text-[13px] text-gray-500 dark:text-gray-400 font-mono flex ${className}`}
     >
       {date.toLocaleDateString('en', {
         day: 'numeric',
