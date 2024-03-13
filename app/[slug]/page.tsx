@@ -120,7 +120,7 @@ async function StaticImage({ slug, src, ...props }: StaticImageProps) {
 
   return (
     <Image
-      src={`./${slug}/${src}`}
+      src={src}
       alt=""
       placeholder="blur"
       blurDataURL={placeholder.base64}
