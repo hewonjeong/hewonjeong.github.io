@@ -60,8 +60,8 @@ export default async function PostPage({
             },
           }}
         />
-        <hr />
       </div>
+      <hr className="mt-16 mb-8 opacity-60 dark:opacity-10" />
     </article>
   )
 }
