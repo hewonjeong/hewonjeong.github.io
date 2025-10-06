@@ -1,3 +1,5 @@
+@import 'markdown.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,5 +29,3 @@
     transform: none !important;
   }
 }
-
-@import 'markdown.css';
