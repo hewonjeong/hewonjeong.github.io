@@ -15,11 +15,12 @@ import lightTheme from './themes/light.json'
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const filename = `./public/${params.slug}/index.md`
+  const { slug } = await params
+  const filename = `./public/${slug}/index.md`
   const file = await readFile(filename, 'utf8')
-  const postComponents = await importPostComponents(params.slug)
+  const postComponents = await importPostComponents(slug)
   const { content, data } = matter(file)
 
   return (
@@ -33,7 +34,7 @@ export default async function PostPage({
           source={content}
           components={{
             a: Link as any,
-            img: (props) => <StaticImage {...props} slug={params.slug} />,
+            img: (props) => <StaticImage {...props} slug={slug} />,
             ...postComponents,
           }}
           options={{
@@ -92,9 +93,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const file = await readFile(`./public/${params.slug}/index.md`, 'utf8')
+  const { slug } = await params
+  const file = await readFile(`./public/${slug}/index.md`, 'utf8')
   const { data } = matter(file)
 
   return {
@@ -109,10 +111,11 @@ function isRemote(src: string) {
 
 type StaticImageProps = {
   slug: string
-} & Omit<React.ComponentProps<'img'>, 'width' | 'height' | 'ref'>
+  src?: string
+} & Omit<React.ComponentProps<'img'>, 'width' | 'height' | 'ref' | 'src'>
 
 async function StaticImage({ slug, src, ...props }: StaticImageProps) {
-  if (!src) throw new Error('src is required')
+  if (!src || typeof src !== 'string') throw new Error('src is required')
   if (isRemote(src)) throw new Error('Remote images are not supported')
 
   const file = await readFile(`./public/${slug}/${src}`)
